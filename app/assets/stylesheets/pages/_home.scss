@@ -1,2 +1,103 @@
 // Specific CSS for your home-page
-@import "form"
+
+.hero {
+  height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1590634561459-a66450c49241?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1006&q=80');
+  background-position: center;
+  background-size: cover;
+  padding: 50px 16px;
+
+  h1 {
+    padding-right: 90px;
+    font-size: 36px;
+  }
+
+  h1, .hero-signup-btn {
+    color: white;
+    font-weight: bold;
+  }
+
+  .hero-action {
+    margin-top: 170px;
+    text-align: center;
+  }
+
+  .hero-action a {
+    text-decoration: none;
+  }
+
+  .hero-action a:last-child {
+    margin-top: 10px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .hero-signup-btn {
+    font-family: $headers-font;
+    font-size: 18px;
+    padding: 15px 30px;
+    background-color: $blue;
+    border-radius: 15px;
+  }
+}
+
+.our-services {
+  background-color: $yellow;
+  padding: 70px 16px;
+  text-align: center;
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+
+  .service-card {
+    background-color: white;
+    border-radius: 30px;
+    padding: 30px;
+    margin-bottom: 24px;
+  }
+
+  .service-card:last-child {
+    margin-bottom: 0;
+  }
+
+  i {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+}
+
+.home-find-vets {
+  padding: 70px 16px;
+  text-align: center;
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .home-find-vets-map {
+    background-image: url('https://cdn.mos.cms.futurecdn.net/cgNja7vCHHvsfP3gtfd2wg.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 380px;
+    border-radius: 40px;
+  }
+}
+
+.home-witnesses {
+  background-color: $blue;
+  color: white;
+  text-align: center;
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  i {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+}
