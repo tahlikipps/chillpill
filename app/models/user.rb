@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_many :pets, through: :pet_carers
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validate :first_name, :address, presence: true
-  validate :email, presence: true, uniqueness: true
+  validates :first_name, :address, presence: true
+  validates :email, presence: true, uniqueness: true
 end
