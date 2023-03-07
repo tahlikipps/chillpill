@@ -9,8 +9,15 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem "dotenv-rails", groups: [:development, :test]
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+
+gem "pundit"
+
+gem "cloudinary"
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
