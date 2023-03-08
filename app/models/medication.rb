@@ -1,4 +1,5 @@
 class Medication < ApplicationRecord
+  belongs_to :pet
   has_many :medication_administrations
   MED_TYPE = ["Capsule", "Tablet", "Liquid", "Spray", "Cream", "Gel"]
   FREQUENCY = ["Everyday", "Every two days", "Every three days", "Once a week", "Twice a week"]
