@@ -1,0 +1,47 @@
+<div class="profile-img-header-container">
+    <%# unless current_user.photo.key.nil? %>
+      <%#= cl_image_tag current_user.photo.key, class: "avatar-profile" %>
+    <%# else %>
+      <%= image_tag "avatar", height: '350px', width:'100%', style: "object-fit: cover;" %>
+    <%# end %>
+    <%#= VET ONLY  NEED TO ADD VET TAG TO IMAGE%>
+  <div class="container">
+    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="profile-aboutmecard">
+    <h2>About me</h2>
+    <p> ChillPiller since: <%= current_user.created_at.strftime("%B #{current_user.created_at.day.ordinalize}, %Y") %></p>
+    <%#= IF WE CAN, ADD Longest Streak: <%= current_user.medications_administration.longeststreak%>
+  </div>
+  <div class="profile-contactcard">
+    <p><strong>Address</strong><p>
+    <p><%= current_user.address %></p>
+  </div>
+    <div class="profile-contactcard">
+    <p><strong>Phone number</strong><p>
+    <p><%= current_user.phone_number %></p>
+  </div>
+  <div class="profile-contactcard">
+    <p><strong>Email</strong><p>
+    <p><%= current_user.email %></p>
+  </div>
+
+  <div class="profile-pets-container">
+    <h2>Pets</h2>
+    <div class="profile-petscard-container">
+      <%# unless current_user.pets.empty? %>
+        <%# current_user.pets.each do |pet| %>
+        <div class="profile-petscard">
+          <%#= cl_image_tag photo.key, height: '250px', width:'100%', style: "object-fit: cover"%>
+        <%# end %>
+      <%# end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#= OWNER OR CARER  %>
+<%#= VET ONLY  %>
