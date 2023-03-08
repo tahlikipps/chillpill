@@ -14,6 +14,10 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
+  def show
+    record.user == user
+  end
+
   def update?
     record.user == user
   end
