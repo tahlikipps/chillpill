@@ -1,12 +1,14 @@
-<div class= "form-container">
-  <h2>Add pet</h2>
+<div class="pet-form">
+  <h1>Add pet</h1>
 
+  <div class= "form-container">
     <%= simple_form_for @pet do |f| %>
-                <%= f.input :name %>
-                <%= f.input :address %>
-                <%= f.input :birth_date, start_year: 1990 %>
-                <%= f.input :species, collection: Pet::SPECIES, class: "form-border" %>
-                <%= f.input :photo, as: :file %>
-                <%= f.submit "Add", class: 'button' %>
-              <% end %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :birth_date, start_year: 1990 %>
+      <%= f.input :species, collection: Pet::SPECIES, class: "form-border" %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Add", class: 'button' %>
+    <% end %>
+  </div>
 </div>

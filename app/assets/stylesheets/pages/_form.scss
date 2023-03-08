@@ -1,50 +1,68 @@
-
 .form-container {
-  margin-left: 20px;
-  margin-right: 20px;
+  padding: 25px 25px;
+  color: black;
 
   label {
-    color: $black;
+    color: $gray;
+  }
+
+  abbr {
+    color: $red;
+    display: none;
+  }
+
+  .input-icon {
+    position: relative;
+  }
+
+  i {
+    position: absolute;
+    font-size: 20px;
+    top: 45px;
+    left: 20px;
+  }
+
+  input, select {
+    border: 1px solid black;
+    border-radius: 15px;
+    color: black;
+    height: 48px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+  }
+
+  input:focus, select:focus {
+    color: black;
   }
 
   input[type=submit] {
-    background-color: darkblue;
+    background-color: $blue;
     color: white;
     border: none;
-    padding: 15px 15px;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-top: 50px;
     font-weight: 600;
-    width: 350px;
+    width: 100%;
   }
 
-  h2 {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-weight: 600;
+  .pets_medications_name input {
+    padding-left: 55px;
   }
 
-  #pet_species{
-    border-radius: 50px;
+  .pets_medications_dosage {
+    width: 48%;
   }
 
-  #pet_birth_date_1i{
-    border-radius: 50px;
+  .pets_medications_medication_type {
+    width: 48%;
   }
+}
 
-  #pet_birth_date_2i{
-    border-radius: 50px;
-  }
+.pet-form, .meds-form {
+  margin: 50px 0;
 
-  #pet_birth_date_3i{
-    border-radius: 50px;
-  }
-
-  input[type=text] {
-    border-radius: 50px;
-  }
-
-  input[type=file]{
-    border-radius: 50px;
+  h1 {
+    color: black;
+    padding: 0 25px;
   }
 }
