@@ -1,0 +1,18 @@
+footer {
+  background-color: $yellow;
+  text-align: center;
+  padding: 20px;
+
+  .footer-icons {
+    margin-bottom: 10px;
+  }
+
+  i {
+    font-size: 30px;
+    margin-right: 10px;
+  }
+
+  .footer-icons i:last-child {
+    margin-right: 0;
+  }
+}
