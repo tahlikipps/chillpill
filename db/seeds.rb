@@ -8,11 +8,11 @@
 
 require 'faker'
 require "open-uri"
+
 PetCarer.destroy_all
 Medication.destroy_all
 Pet.destroy_all
 User.destroy_all
-
 
 user1 = User.new(
   first_name: "Laia",
