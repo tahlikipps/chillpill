@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   get "/profile", to: 'users#show'
 
-  resources :pets, only: %i[new create edit update destroy show] do
+
+  resources :pets, only: %i[new show create edit update destroy] do
+
     resources :medications, only: %i[index new create]
   end
   resources :medications, only: %i[edit update destroy]

@@ -22,10 +22,12 @@
 
 <div class="container">
   <div class="pet-medication-card">
+
     <h2><%= @pet.name %>'s medication</h2>
     <%= link_to pet_medications_path(@pet) do %>
+
       <span class=".seemedication-tag">See all</span>
-    <% end %>
+    <%# end %>
     <div class="medicationstatus-container">
       <div class="medicationstatus-card">
 
@@ -83,7 +85,7 @@
             <%#= image_tag "greycircle", height:"40px", width:"40px" %>
           <%# end %>
       </div>
-    </div>
+      <%= link_to 'Add medication', new_user_session_path, class: "yellow-btn"%>
 
   </div>
 </div>

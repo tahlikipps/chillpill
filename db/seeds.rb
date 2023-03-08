@@ -59,7 +59,6 @@ user1.save!
     address: Faker::Address.city,
     email: "Martin@gmail.com",
     password: "123456",
-    encrypted_password: "123456",
     is_vet: false
   )
     file = URI.open("https://variety.com/wp-content/uploads/2022/09/funny-girl.jpg")
@@ -88,6 +87,7 @@ user1.save!
       start_date: Date.new(2022, 1, 3),
       end_date: Date.new(2022, 1, 5)
     )
+
 
     medication.pet= pet
     medication.save!

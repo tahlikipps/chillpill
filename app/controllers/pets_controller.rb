@@ -1,7 +1,9 @@
 class PetsController < ApplicationController
   def show
     @medications = Medication.all.where(user_id: current_user.id)
+    @pet_carers = PetCarer.all.where(user_id: current_user.id)
     @pet = Pet.find(params[:id])
+
     authorize @pet
   end
 
