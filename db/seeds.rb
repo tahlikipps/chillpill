@@ -9,8 +9,8 @@
 require 'faker'
 require "open-uri"
 
-Medication.destroy_all
 PetCarer.destroy_all
+Medication.destroy_all
 Pet.destroy_all
 User.destroy_all
 
