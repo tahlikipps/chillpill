@@ -1,0 +1,89 @@
+<div class="petimage-container">
+  <%= image_tag "petavatar-large", class:"pet-avatar-large", height: '350px', width:'100%', style: "object-fit: cover;" %>
+</div>
+
+<div class="petname-container">
+  <h2><%#= @pet.name %></h2>
+  <div class="petdetails-container">
+    <div class="petdetails-card">
+      <p><%#= @pet.age %></p>
+      <span class="yellowsmalltext">Age</span>
+    </div>
+    <div class="petdetails-card">
+      <p><%#= @pet.species %></p>
+      <span class="yellowsmalltext">Species</span>
+    </div>
+    <div class="petdetails-card">
+      <p><%#= @pet.user.owner %></p>
+      <span class="yellowsmalltext">Human</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="pet-medication-card">
+    <h2><%#= @pet.name %>'s medication</h2>
+    <%= link_to medications_path(@pet) do %>
+      <span class=".seemedication-tag">See all</span>
+    <% end %>
+    <div class="medicationstatus-container">
+      <div class="medicationstatus-card">
+
+        <span class="text-small">Mon</span>
+          <%# if medication.monday.is_given == true %>
+            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+          <%# else %>
+            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+          <%# end %>
+      </div>
+      <div class="medicationstatus-card">
+        <span class="text-small">Tues</span>
+          <%# if medication.tuesday.is_given == true %>
+            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+          <%# else %>
+            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+          <%# end %>
+      <div class="medicationstatus-card">
+        <span class="text-small">Wed</span>
+          <%# if medication.wednesday.is_given == true %>
+            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+          <%# else %>
+            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+          <%# end %>
+      </div>
+      <div class="medicationstatus-card">
+        <span class="text-small">Thu</span>
+          <%# if medication.thursday.is_given == true %>
+            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+          <%# else %>
+            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+          <%# end %>
+      </div>
+      <div class="medicationstatus-card">
+        <span class="text-small">Fri</span>
+          <%# if medication.friday.is_given == true %>
+            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+          <%# else %>
+            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+          <%# end %>
+      </div>
+      <div class="medicationstatus-card">
+        <span class="text-small">Sat</span>
+          <%# if medication.saturday.is_given == true %>
+            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+          <%# else %>
+            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+          <%# end %>
+      </div>
+      <div class="medicationstatus-card">
+        <span class="text-small">Sun</span>
+          <%# if medication.sunday.is_given == true %>
+            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+          <%# else %>
+            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+          <%# end %>
+      </div>
+    </div>
+
+  </div>
+</div>
