@@ -1,5 +1,5 @@
 <div class="petimage-container">
-  <%= image_tag "petavatar-large", class:"pet-avatar-large", height: '350px', width:'100%', style: "object-fit: cover;" %>
+  <%= image_tag "pet-avatar-large", class:"pet-avatar-large", height: '350px', width:'100%', style: "object-fit: cover;" %>
 </div>
 
 <div class="petname-container">
@@ -14,7 +14,7 @@
       <span class="yellowsmalltext">Species</span>
     </div>
     <div class="petdetails-card">
-      <p><%#= @pet.user.owner %></p>
+      <p><%= @pet.owner.first_name %></p>
       <span class="yellowsmalltext">Human</span>
     </div>
   </div>
@@ -22,10 +22,12 @@
 
 <div class="container">
   <div class="pet-medication-card">
-    <h2><%#= @pet.name %>'s medication</h2>
-    <%= link_to medications_path(@pet) do %>
+
+    <h2><%= @pet.name %>'s medication</h2>
+    <%= link_to pet_medications_path(@pet) do %>
+
       <span class=".seemedication-tag">See all</span>
-    <% end %>
+    <%# end %>
     <div class="medicationstatus-container">
       <div class="medicationstatus-card">
 
@@ -83,7 +85,7 @@
             <%#= image_tag "greycircle", height:"40px", width:"40px" %>
           <%# end %>
       </div>
-    </div>
+      <%= link_to 'Add medication', new_user_session_path, class: "yellow-btn"%>
 
   </div>
 </div>

@@ -101,6 +101,7 @@
   color: grey;
   font-weight: lighter;
   font-size: 10px;
+  text-decoration: none;
 }
 
 .profile-petscard-add {
@@ -193,4 +194,13 @@
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 5px;
   margin-bottom: 16px;
+}
+
+.yellow-btn {
+  font-family: $headers-font;
+  font-size: 18px;
+  width: 100%;
+  padding: 15px 30px;
+  background-color: $yellow;
+  border-radius: 15px;
 }

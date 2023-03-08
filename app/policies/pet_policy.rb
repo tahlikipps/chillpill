@@ -2,6 +2,10 @@ class PetPolicy < ApplicationPolicy
   class Scope < Scope
   end
 
+  def show?
+    true
+  end
+
   def new?
     true
   end
@@ -12,6 +16,10 @@ class PetPolicy < ApplicationPolicy
 
   def edit?
     true
+  end
+
+  def show
+    record.user == user
   end
 
   def update?

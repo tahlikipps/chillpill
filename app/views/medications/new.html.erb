@@ -3,7 +3,7 @@
   <h1>Add medication</h1>
 
   <div class="form-container">
-      <%= simple_form_for pet_medications_path do |f| %>
+      <%= simple_form_for [@pet, @medication] do |f| %>
         <div class="input-icon">
           <i class="fa-solid fa-pills"></i>
           <%= f.input :name, label: 'Medicine name', placeholder: 'Add medicine name' %>
