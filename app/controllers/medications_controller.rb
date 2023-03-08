@@ -2,13 +2,16 @@ class MedicationsController < ApplicationController
   # before_action :set_medication, only: %i[edit update destroy]
 
   def new
+    @pet = Pet.find(params[:pet_id])
     @medication = Medication.new
     authorize @medication
   end
 
   def create
+    @pet = Pet.find(params[:pet_id])
     @medication = Medication.new(medication_params)
-    @medication.pet = Pet.find(params[:pet_id])
+    @medication.pet = @pet
+    authorize @medication
 
     if @medication.save
       redirect_to pet_path(@pet)
