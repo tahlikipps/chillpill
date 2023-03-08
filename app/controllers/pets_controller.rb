@@ -34,6 +34,8 @@ class PetsController < ApplicationController
   def destroy
     @pet = Equipment.find(params[:id])
     @pet.destroy
+
+    redirect_to pets_path, status: :see_other
   end
 
   private

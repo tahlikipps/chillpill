@@ -10,3 +10,33 @@
 form.simple_form{
   margin-top: 30px;
 }
+
+.form-control{
+  border-radius: 15px;
+  height: 58px;
+  border-width: 0px;
+}
+
+input[type=submit]{
+  width: 100%;
+  background-color: darkblue;
+  color: white;
+  border: none;
+  padding: 15px 10px;
+  border-radius: 15px;
+  margin-top: 50px;
+  font-weight: 600;
+}
+
+input.password{
+  padding-left: 3rem;
+}
+  .input-group-text{
+  height: 100%;
+  border-radius: 15px 0px 0px 15px;
+  background-color: $white;
+  border-color: $white;
+  }
+  .input-group  {
+    margin-bottom: 1rem;
+  }
