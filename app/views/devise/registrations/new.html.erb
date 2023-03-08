@@ -1,23 +1,53 @@
 <div class="full-pages">
 <div class="container">
-<h2>Sign up</h2>
+<h2><strong>Create a <br> new account </strong></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
+  <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa-light fa-envelope"></i> </span>
+          </div>
+  <%= f.input   :first_name,
+                required: true,
+                autofocus: true,
+                label: false,
+                wrapper: false,
+                input_html: { autocomplete: "first_name" , placeholder: "First name"}%>
+  </div>
+
+   <%= f.input   :last_name,
+                required: true,
+                autofocus: true,
+                label: false,
+                input_html: { autocomplete: "last_name" , placeholder: "Last name"}%>
+  <%= f.input :email,
                 required: true,
                 autofocus: true,
                 label: false,
                 input_html: { autocomplete: "email" , placeholder: "Your email"}%>
+  <%= f.input   :phone_number,
+                required: true,
+                autofocus: true,
+                label: false,
+                input_html: { autocomplete: "phone_number" , placeholder: "Phone number"}%>
+  <%= f.input   :address,
+                required: true,
+                autofocus: true,
+                label: false,
+                input_html: { autocomplete: "address" , placeholder: "Your address"}%>
+
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", placeholder: "Your password"} %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", placeholder: "Confirm password" } %>
+    <%= f.input :is_vet, label: "I am a veterinarian"%>
+
   </div>
 
   <div class="form-actions">
