@@ -6,10 +6,14 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "global";
+
 @import "pages/profile";
 @import"devise/index";
+@import "devise/registrations";
+

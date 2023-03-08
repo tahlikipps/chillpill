@@ -1,4 +1,8 @@
 class PetsController < ApplicationController
+  def show
+    @medications = Medication.all.where(user_id: current_user.id)
+  end
+
   def new
     @pet = Pet.new
     authorize @pet
@@ -30,6 +34,8 @@ class PetsController < ApplicationController
   def destroy
     @pet = Equipment.find(params[:id])
     @pet.destroy
+
+    redirect_to pets_path, status: :see_other
   end
 
   private
