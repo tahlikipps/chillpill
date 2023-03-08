@@ -1,14 +1,14 @@
 <div class="full-pages">
 <div class="container">
-<h2><strong>Create a <br> new account </strong></h2>
+<h2><strong> Create a <br> new account </strong></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  <div class="input-group">
+    <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fa-light fa-envelope"></i> </span>
+            <span class="input-group-text"><i class="fa-regular fa-user"></i> </span>
           </div>
   <%= f.input   :first_name,
                 required: true,
@@ -18,36 +18,82 @@
                 input_html: { autocomplete: "first_name" , placeholder: "First name"}%>
   </div>
 
+  <div class="form-inputs">
+    <div class="input-group">
+      <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa-regular fa-user"></i> </span>
+      </div>
    <%= f.input   :last_name,
                 required: true,
                 autofocus: true,
+                wrapper: false,
                 label: false,
                 input_html: { autocomplete: "last_name" , placeholder: "Last name"}%>
+  </div>
+
+<div class="form-inputs">
+    <div class="input-group">
+      <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+      </div>
   <%= f.input :email,
                 required: true,
                 autofocus: true,
                 label: false,
+                wrapper: false,
                 input_html: { autocomplete: "email" , placeholder: "Your email"}%>
-  <%= f.input   :phone_number,
-                required: true,
-                autofocus: true,
-                label: false,
-                input_html: { autocomplete: "phone_number" , placeholder: "Phone number"}%>
-  <%= f.input   :address,
-                required: true,
-                autofocus: true,
-                label: false,
-                input_html: { autocomplete: "address" , placeholder: "Your address"}%>
+ </div>
 
+    <div class="form-inputs">
+        <div class="input-group">
+         <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+        </div>
+
+      <%= f.input   :phone_number,
+                    required: true,
+                    autofocus: true,
+                    wrapper: false,
+                    label: false,
+                    input_html: { autocomplete: "phone_number" , placeholder: "Phone number"}%>
+    </div>
+
+  <div class="form-inputs">
+    <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa-regular fa-address-card"></i></span>
+            </div>
+    <%= f.input   :address,
+                  required: true,
+                  autofocus: true,
+                  label: false,
+                  wrapper:false,
+                  input_html: { autocomplete: "address" , placeholder: "Your address"}%>
+  </div>
+    <div class="form-inputs">
+        <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                </div>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                wrapper:false,
+                label: false,
                 input_html: { autocomplete: "new-password", placeholder: "Your password"} %>
+  </div>
+
+      <div class="form-inputs">
+        <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                </div>
     <%= f.input :password_confirmation,
                 required: true,
+                wrapper:false,
+                label: false,
                 input_html: { autocomplete: "new-password", placeholder: "Confirm password" } %>
+</div>
     <%= f.input :is_vet, label: "I am a veterinarian"%>
-
   </div>
 
   <div class="form-actions">
