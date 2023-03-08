@@ -8,8 +8,11 @@
 
 require 'faker'
 require "open-uri"
-User.destroy_all
+PetCarer.destroy_all
+Medication.destroy_all
 Pet.destroy_all
+User.destroy_all
+
 
 user1 = User.new(
   first_name: "Laia",
@@ -18,7 +21,6 @@ user1 = User.new(
   address: Faker::Address.city,
   email: "Laia@gmail.com",
   password: "123456",
-  encrypted_password: "123456",
   is_vet: true
 )
   file = URI.open("https://variety.com/wp-content/uploads/2022/09/funny-girl.jpg")
@@ -89,4 +91,3 @@ user1.save!
 
     medication.pet= pet
     medication.save!
-
