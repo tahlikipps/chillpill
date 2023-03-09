@@ -4,7 +4,7 @@ class PetsController < ApplicationController
     @pet_carers = PetCarer.all.where(user_id: current_user.id)
     @owner = PetCarer.all.where(user_id: current_user.id, is_owner: true)
     @pet = Pet.find(params[:id])
-
+    @pet_age = Date.today.year - @pet.birth_date.year
     authorize @pet
   end
 
