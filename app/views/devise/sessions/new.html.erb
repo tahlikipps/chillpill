@@ -1,11 +1,11 @@
 <div class="full-pages">
   <div class="container">
-    <h2> <strong >Login to <br>your account </strong></h2>
+    <h2> <strong > Login to <br> your account </strong></h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
       <div class="form-inputs">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">@</span>
+            <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
           </div>
           <%= f.input :email,
                       required: false,
@@ -15,10 +15,18 @@
                       input_html: { autocomplete: "email", placeholder: "Your email"} %>
         </div>
 
+   <div class="form-inputs">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+          </div>
         <%= f.input :password,
                     required: false,
                     label: false,
+                    wrapper:false,
                     input_html: { autocomplete: "current-password", placeholder: "Your password" } %>
+                </div
+                >
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         <%= f.submit "Log in", class:"button" %>
       </div>
