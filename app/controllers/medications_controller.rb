@@ -4,6 +4,8 @@ class MedicationsController < ApplicationController
   def index
     @pet = Pet.find(params[:pet_id])
     @medications = policy_scope(Medication).where(pet: @pet)
+    @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
+    @given_administrations = MedicationAdministration.where(is_given: true)
   end
 
   def new
@@ -18,7 +20,7 @@ class MedicationsController < ApplicationController
     @medication.pet = @pet
 
     if @medication.save
-      redirect_to pet_path(@pet)
+      redirect_to pet_medications_path(@medication.pet)
     else
       render 'new', status: :unprocessable_entity
     end
@@ -32,7 +34,7 @@ class MedicationsController < ApplicationController
 
   def update
     if @medication.update(medication_params)
-      redirect_to pet_path(@medication.pet)
+      redirect_to pet_medications_path(@medication.pet)
     else
       render :edit, status: :unprocessable_entity
     end
