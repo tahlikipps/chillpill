@@ -3,18 +3,18 @@
 </div>
 
 <div class="petname-container">
-  <h2><%#= @pet.name %></h2>
+  <h2><%= @pet.name %></h2>
   <div class="petdetails-container">
     <div class="petdetails-card">
-      <p><%#= @pet.age %></p>
+      <p><%= Date.today.year - @pet.birth_date.year %> year old</p>
       <span class="yellowsmalltext">Age</span>
     </div>
     <div class="petdetails-card">
-      <p><%#= @pet.species %></p>
+      <p><%= @pet.species %></p>
       <span class="yellowsmalltext">Species</span>
     </div>
     <div class="petdetails-card">
-      <p><%= @pet.owner.first_name %></p>
+      <p><%= @pet.owner %></p>
       <span class="yellowsmalltext">Human</span>
     </div>
   </div>
@@ -27,7 +27,7 @@
     <%= link_to pet_medications_path(@pet) do %>
 
       <span class=".seemedication-tag">See all</span>
-    <%# end %>
+    <% end %>
     <div class="medicationstatus-container">
       <div class="medicationstatus-card">
 
