@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :medications, only: %i[index new create]
   end
   resources :medications, only: %i[edit update destroy]
+  resources :medication_administrations, only: :update
 end
