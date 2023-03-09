@@ -1,0 +1,73 @@
+.medications_idx {
+  margin: 50px 0;
+}
+
+
+/* Style for current meds */
+
+.current_medications {
+  margin: 50px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  text-align: center;
+
+  .current_medications_cards {
+    border: 1px solid #ECEDEF;
+    border-radius: 24px;
+  }
+
+  .curr_meds_top {
+    padding: 20px;
+  }
+
+  i {
+    color: $yellow;
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+}
+
+.curr_meds_icons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+  }
+
+  i {
+    color: $black;
+    font-size: 20px;
+  }
+
+  .curr_meds_icon {
+    width: 100%;
+    border-top: 1px solid #ECEDEF;
+    padding-top: 20px;
+  }
+
+  .curr_meds_icon:first-child {
+    border-right: 1px solid #ECEDEF;
+  }
+}
+
+
+/* Style for given meds */
+
+.given_meds {
+
+  i {
+    color: $yellow;
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+
+  .given_med {
+    border: 1px solid #ECEDEF;
+    border-radius: 24px;
+    display: flex;
+  }
+
+}
