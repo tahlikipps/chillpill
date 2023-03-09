@@ -108,6 +108,7 @@
   width: 100px;
   height: 120px;
   margin-top: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   clip-path: inset(0px -10px -10px -10px);
   padding: 0 10px;
@@ -260,4 +261,18 @@ a.yellow-btn {
 
 .medicationdosage-text h3 {
   margin-top: 8px;
+}
+
+.medicationdosage-btn {
+
+  margin-left:45px;
+  button {
+    background-color:$yellow;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-weight: 600;
+    margin-left: auto;
+  }
 }
