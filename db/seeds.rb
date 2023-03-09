@@ -18,7 +18,7 @@ user1 = User.new(
   first_name: "Laia",
   last_name: "Martínez",
   phone_number: 344566767,
-  address: Faker::Address.city,
+  address: "Carrer de Bruc 120, Barcelona",
   email: "Laia@gmail.com",
   password: "123456",
   is_vet: true

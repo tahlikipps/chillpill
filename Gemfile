@@ -14,6 +14,8 @@ gem 'letter_opener', group: :development
 gem "sprockets-rails"
 
 gem "dotenv-rails", groups: [:development, :test]
+gem "geocoder"
+
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
