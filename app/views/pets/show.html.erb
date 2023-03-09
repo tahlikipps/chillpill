@@ -16,7 +16,7 @@
     </div>
     <div class="petdetails-card">
     <% unless @pet.owner.nil? %>
-      <h4><%= @pet.owner %></h4>
+      <h4><%= @pet.owner.first_name %></h4>
     <% else %>
       <h4><%= link_to "Add carer", edit_pet_path(@pet) %></h4>
     <% end %>
@@ -29,13 +29,11 @@
   <div class="pet-medication-card">
   <%= @administrations.count %>
     <h2><%= @pet.name %>'s medication</h2>
-    <%= link_to pet_medications_path(@pet) do %>
-
+    <%= link_to medication_path do %>
       <span class="seemedication-tag">See all</span>
     <% end %>
     <div class="medicationstatus-container">
       <div class="medicationstatus-card">
-
         <span class="text-small">Mon</span>
           <%# if medication.monday.is_given == true %>
             <%= image_tag "yellowtick", height:"40px", width:"40px" %>
@@ -50,6 +48,7 @@
           <%# else %>
             <%#= image_tag "greycircle", height:"40px", width:"40px" %>
           <%# end %>
+      </div>
       <div class="medicationstatus-card">
         <span class="text-small">Wed</span>
           <%# if medication.wednesday.is_given == true %>
@@ -69,28 +68,48 @@
       <div class="medicationstatus-card">
         <span class="text-small">Fri</span>
           <%# if medication.friday.is_given == true %>
-            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+            <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
           <%# else %>
-            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+            <%= image_tag "greycircle", height:"40px", width:"40px" %>
           <%# end %>
       </div>
       <div class="medicationstatus-card">
         <span class="text-small">Sat</span>
           <%# if medication.saturday.is_given == true %>
-            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+            <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
           <%# else %>
-            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+            <%= image_tag "greycircle", height:"40px", width:"40px" %>
           <%# end %>
       </div>
       <div class="medicationstatus-card">
         <span class="text-small">Sun</span>
           <%# if medication.sunday.is_given == true %>
-            <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+            <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
           <%# else %>
-            <%#= image_tag "greycircle", height:"40px", width:"40px" %>
+            <%= image_tag "greycircle", height:"40px", width:"40px" %>
           <%# end %>
       </div>
-      <%= link_to 'Add medication', new_user_session_path, class: "yellow-btn"%>
+    </div>
+    <%= link_to 'Add medication', new_pet_medication_path(@pet), class: "yellow-btn"%>
+  </div>
 
+  <div class="medicationadministration-container">
+  <%#= @medicationadministration.dosage.each |dosage| do %>
+    <div class="medicationadministration-card">
+      <h3><%#= dosage.time %>Morning</h3>
+      <div class="medicationdosage-card">
+        <div class="medicationdosage-img">
+          <%= image_tag "medicine", height:"50px", width:"50px" %>
+        </div>
+        <div class="medicationdosage-text">
+          <h3><%#= dosage.medication.name %>Omega 3</h3>
+          <p><span class="text-small"><%#= dosage.dosage %>1 tablet</span></p>
+        </div>
+        <div class="medicationdosage-check">
+          <%#= button_to "Confirm",  booking_path(booking, {is_given: true}), method: :patch, data: {turbo_confirm: 'Are you sure?'} %>
+        </div>
+      </div>
+    </div>
+    <%# end %>
   </div>
 </div>
