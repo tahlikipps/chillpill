@@ -7,7 +7,9 @@ class PagesController < ApplicationController
     @markers = @vets.geocoded.map do |vet|
       {
         lat: vet.latitude,
-        lng: vet.longitude
+        lng: vet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { user: vet }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
