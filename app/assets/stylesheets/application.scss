@@ -7,6 +7,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
 
 // Your CSS partials
 @import "components/index";
@@ -16,4 +18,3 @@
 @import "pages/profile";
 @import"devise/index";
 @import "devise/registrations";
-
