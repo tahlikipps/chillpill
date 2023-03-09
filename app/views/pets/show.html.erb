@@ -35,7 +35,6 @@
     <% end %>
     <div class="medicationstatus-container">
       <div class="medicationstatus-card">
-
         <span class="text-small">Mon</span>
           <%# if medication.monday.is_given == true %>
             <%= image_tag "yellowtick", height:"40px", width:"40px" %>
@@ -50,6 +49,7 @@
           <%# else %>
             <%#= image_tag "greycircle", height:"40px", width:"40px" %>
           <%# end %>
+      </div>
       <div class="medicationstatus-card">
         <span class="text-small">Wed</span>
           <%# if medication.wednesday.is_given == true %>
@@ -91,6 +91,11 @@
           <%# end %>
       </div>
       <%= link_to 'Add medication', new_user_session_path, class: "yellow-btn"%>
+    </div>
+  </div>
+
+  <div class="medicationadministration-container">
+
 
   </div>
 </div>
