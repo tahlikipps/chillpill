@@ -1,0 +1,24 @@
+<div class="form-container">
+    <%= simple_form_for [@pet, @medication] do |f| %>
+      <div class="input-icon">
+        <i class="fa-solid fa-pills"></i>
+        <%= f.input :name, label: 'Medicine name', placeholder: 'Add medicine name' %>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <%= f.input :dosage, placeholder: 'Ex: 200mg' %>
+        <%= f.input :medication_type, label: 'Type', collection: Medication::MED_TYPE %>
+      </div>
+      <%= f.input :time_period, collection: Medication::FREQUENCY, class: "form-border" %>
+      <%= f.input :frequency, placeholder: "Times per day", as: :numeric, class: "form-border" %>
+
+      <div class="input-icon">
+        <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+      </div>
+
+      <div class="input-icon">
+        <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+      </div>
+      <%= f.submit "Submit", class: 'button' %>
+    <% end %>
+</div>
