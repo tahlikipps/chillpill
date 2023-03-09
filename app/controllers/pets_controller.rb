@@ -2,8 +2,9 @@ class PetsController < ApplicationController
   def show
     @medications = Medication.all.where(user_id: current_user.id)
     @pet_carers = PetCarer.all.where(user_id: current_user.id)
+    @owner = PetCarer.all.where(user_id: current_user.id, is_owner: true)
     @pet = Pet.find(params[:id])
-
+    @pet_age = Date.today.year - @pet.birth_date.year
     authorize @pet
   end
 
