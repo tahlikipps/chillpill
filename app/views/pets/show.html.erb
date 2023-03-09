@@ -27,7 +27,7 @@
 
 <div class="container">
   <div class="pet-medication-card">
-
+  <%= @administrations.count %>
     <h2><%= @pet.name %>'s medication</h2>
     <%= link_to medication_path do %>
       <span class="seemedication-tag">See all</span>
