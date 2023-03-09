@@ -1,4 +1,4 @@
-.form-container {
+.pet-form, .meds-form {
   padding: 25px 25px;
   color: black;
 
@@ -33,10 +33,12 @@
 
   input:focus, select:focus {
     color: black;
+    border: 1px solid black;
   }
 
   input[type=submit] {
     background-color: $blue;
+    padding: 0;
     color: white;
     border: none;
     border-radius: 15px;
@@ -45,15 +47,15 @@
     width: 100%;
   }
 
-  .pets_medications_name input {
+  #medication_name {
     padding-left: 55px;
   }
 
-  .pets_medications_dosage {
+  .medication_dosage {
     width: 48%;
   }
 
-  .pets_medications_medication_type {
+  .medication_medication_type {
     width: 48%;
   }
 }
@@ -63,6 +65,5 @@
 
   h1 {
     color: black;
-    padding: 0 25px;
   }
 }
