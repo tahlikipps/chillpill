@@ -1,6 +1,11 @@
 class MedicationsController < ApplicationController
   before_action :set_medication, only: %i[edit update destroy]
 
+  def index
+    @pet = Pet.find(params[:pet_id])
+    @medications = policy_scope(Medication).where(pet: @pet)
+  end
+
   def new
     @pet = Pet.find(params[:pet_id])
     @medication = Medication.new
@@ -37,7 +42,8 @@ class MedicationsController < ApplicationController
 
   def destroy
     @medication.destroy
-    redirect_to pet_path(@medication.pet), status: :see_other
+    redirect_to pet_medications_path(@medication.pet), status: :see_other
+    authorize @medication
   end
 
   private

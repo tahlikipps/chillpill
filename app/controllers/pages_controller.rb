@@ -10,9 +10,7 @@ class PagesController < ApplicationController
         lng: vet.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { user: vet }),
         marker_html: render_to_string(partial: "marker")
-
       }
     end
   end
-
 end

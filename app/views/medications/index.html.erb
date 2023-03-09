@@ -1,0 +1,16 @@
+<h1>Current meds</h1>
+
+<% @medications.each do |medication| %>
+  <p><%= medication.name %></p>
+
+  <%= link_to "Edit medication", edit_medication_path(medication) %>
+
+  <%= link_to "Delete medication",
+    medication_path(medication),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<% end %>
+
+
+
+<h1>Medication history</h1>
