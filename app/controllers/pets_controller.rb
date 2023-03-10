@@ -8,9 +8,7 @@ class PetsController < ApplicationController
     authorize @pet
     MedicationAdministrationService.new(@pet.medications).call
     @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
-
     @given_administrations = policy_scope(MedicationAdministration).where(is_given: true)
-
   end
 
   def new
@@ -23,7 +21,8 @@ class PetsController < ApplicationController
     authorize @pet
     @pet.save
     @pet_carer = PetCarer.create(pet: @pet, user: current_user, is_owner: true, status: 1)
-    #todo redirect to show page
+    @owner = PetCarer.all.where(user_id: current_user.id, is_owner: true)
+    redirect_to profile_path
   end
 
   def edit
