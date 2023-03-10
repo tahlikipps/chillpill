@@ -22,7 +22,7 @@
     </div>
     <div class="petdetails-card">
     <%# unless @pet.pet_carers.is_vet.nil? %>
-      <h4><%#= @pet.pet_carers.is_vet.first_name %></h4>
+      <%#= @pet.pet_carers.is_vet.first_name %>
     <%# else %>
       <h4><%= link_to "Add vet", edit_pet_path(@pet) %></h4>
     <%# end %>
