@@ -1,16 +1,39 @@
-<h1>Current meds</h1>
+<div class="medications_idx container">
+  <h1>Current meds</h1>
 
-<% @medications.each do |medication| %>
-  <p><%= medication.name %></p>
+  <div class="current_medications">
+    <% @medications.each do |medication| %>
+      <div class="current_medications_cards">
+        <div class="curr_meds_top">
+          <i class="fa-solid fa-capsules"></i>
+          <h3><%= medication.name %></h3>
+        </div>
 
-  <%= link_to "Edit medication", edit_medication_path(medication) %>
+        <div class="curr_meds_icons">
+          <div class="curr_meds_icon">
+            <%= link_to edit_medication_path(medication) do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <% end %>
+          </div>
 
-  <%= link_to "Delete medication",
-    medication_path(medication),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-<% end %>
+          <div class="curr_meds_icon">
+            <%= link_to medication_path(medication), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
+  <h1>Medication history</h1>
 
-
-<h1>Medication history</h1>
+  <div class="given_meds">
+    <% @given_administrations.each do |administration| %>
+      <div class="given_med">
+        <i class="fa-solid fa-capsules"></i>
+        <h3><%= administration.medication.name %></h3>
+      </div>
+    <% end %>
+  </div>
+</div>
