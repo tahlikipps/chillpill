@@ -276,6 +276,7 @@ a.yellow-btn {
     background-color:$yellow;
     color: black;
     border: none;
+    width: 150px;
     padding: 15px 30px;
     border-radius: 15px;
     font-weight: 600;
@@ -284,11 +285,13 @@ a.yellow-btn {
 }
 
 .donedose-btn {
+
   margin-left:45px;
   button {
     background-color:$green;
     color: black;
     border: none;
+    width: 150px;
     padding: 15px 30px;
     border-radius: 15px;
     font-weight: 600;
