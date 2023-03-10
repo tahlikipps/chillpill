@@ -8,7 +8,9 @@ class PetsController < ApplicationController
     authorize @pet
     MedicationAdministrationService.new(@pet.medications).call
     @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
+
     @given_administrations = policy_scope(MedicationAdministration).where(is_given: true)
+
   end
 
   def new
@@ -50,10 +52,5 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :address, :birth_date, :species, :photo)
-  end
-
-  def Date.monday
-    @monday = Date.today.monday
-    @last_monday = @monday.last_week
   end
 end
