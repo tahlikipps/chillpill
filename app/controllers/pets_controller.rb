@@ -6,6 +6,8 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @pet_age = Date.today.year - @pet.birth_date.year
     authorize @pet
+    MedicationAdministrationService.new(@pet.medications).call
+    @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
   end
 
   def new
@@ -48,4 +50,5 @@ class PetsController < ApplicationController
   def pet_params
     params.require(:pet).permit(:name, :address, :birth_date, :species, :photo)
   end
+
 end

@@ -192,7 +192,7 @@
 
 .pet-medication-card {
   width: 100%;
-  height: 100px;
+  height: 200px;
   margin-top: 10px;
   margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -213,17 +213,51 @@
 
 .medicationstatus-container {
   display: inline-grid;
-  width: 100%;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   grid-gap: 5px;
   margin-bottom: 16px;
+  align-items: center;
 }
 
-.yellow-btn {
+.medicationstatus-card {
+  text-align: center;
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+a.yellow-btn {
   font-family: $headers-font;
   font-size: 18px;
+  font-weight: 200;
+  text-decoration: none;
   width: 100%;
   padding: 15px 30px;
   background-color: $yellow;
   border-radius: 15px;
+  display: flex;
+  text-align: center;
+}
+
+.medicationdosage-card {
+  width: 100%;
+  display:flex;
+  height: 80px;
+  border-radius: 15px;
+  border-color: #ECEDEF;
+  border-style: solid;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.medicationdosage-img {
+  padding: 16px;
+  height: 100%
+}
+
+.medicationdosage-text {
+  padding: 18px;
+}
+
+.medicationdosage-text h3 {
+  margin-top: 8px;
 }
