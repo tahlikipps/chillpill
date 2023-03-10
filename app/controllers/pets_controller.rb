@@ -8,7 +8,7 @@ class PetsController < ApplicationController
     authorize @pet
     MedicationAdministrationService.new(@pet.medications).call
     @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
-    @given_administrations = administrations.where(is_given: true)
+    @given_administrations = @administrations.where(is_given: true)
   end
 
   def new
