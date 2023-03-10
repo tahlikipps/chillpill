@@ -51,9 +51,4 @@ class PetsController < ApplicationController
   def pet_params
     params.require(:pet).permit(:name, :address, :birth_date, :species, :photo)
   end
-
-  def Date.monday
-    @monday = Date.today.monday
-    @last_monday = @monday.last_week
-  end
 end
