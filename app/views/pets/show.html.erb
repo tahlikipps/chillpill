@@ -19,6 +19,14 @@
       <p>Species</p>
     </div>
     <div class="petdetails-card">
+    <%# unless @pet.pet_carers.is_vet.nil? %>
+      <h4><%#= @pet.pet_carers.is_vet.first_name %></h4>
+    <%# else %>
+      <h4><%= link_to "Add vet", edit_pet_path(@pet) %></h4>
+    <%# end %>
+      <p>Vet</p>
+    </div>
+    <div class="petdetails-card">
     <% unless @pet.owner.nil? %>
       <h4><%= @pet.owner.first_name %></h4>
     <% else %>
@@ -33,7 +41,7 @@
   <div class="pet-medication-card">
   <%#= @administrations.count %>
     <h2><%= @pet.name %>'s medication</h2>
-    <%= link_to medication_path do %>
+    <%= link_to pet_medications_path(@pet) do %>
       <span class="seemedication-tag">See all</span>
     <% end %>
     <div class="medicationstatus-container">
@@ -109,8 +117,16 @@
           <h3><%= dosage.medication.name %></h3>
           <p><span class="text-small"><%= dosage.medication.dosage %></span></p>
         </div>
-        <div class="medicationdosage-btn">
-          <%= button_to "Given",  medication_administration_path(dosage, {is_given: true}), method: :patch, data: {turbo_confirm: 'Are you sure?'} %>
+
+        <% unless dosage.is_given == true %>
+          <div class="medicationdosage-btn">
+          <%= button_to "Given",  edit_medication_path(dosage, {is_given: true}), method: :patch, data: {turbo_confirm: 'Are you sure?'} %>
+          </div>
+        <% else %>
+          <div class="donedose-btn">
+          <%= button_to "Done",  edit_medication_path(dosage) %>
+          </div>
+        <% end %>
         </div>
       </div>
     </div>
