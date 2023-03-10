@@ -31,11 +31,13 @@
   <div class="given_meds">
     <% @given_administrations.each do |administration| %>
     <h3><%= administration.date %></h3>
-      <div class="given_med">
+      <div class="given_med_card">
         <i class="fa-solid fa-capsules"></i>
-        <h3><%= administration.medication.name %></h3>
-        <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.date %></p>
-        <p>Given by <%#= administration.user.first_name %></p>
+        <div class="given_med_txt">
+          <h3><%= administration.medication.name %></h3>
+          <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.date %></p>
+          <p>Given by <strong>user<%#= administration.user.first_name %></strong></p>
+        </div>
       </div>
     <% end %>
   </div>
