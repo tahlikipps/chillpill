@@ -1,4 +1,9 @@
 <div class="medications_idx container">
+
+  <div class="goback-button">
+    <%= link_to "← Go back", pet_path(@pet) %>
+  </div>
+
   <h1>Current meds</h1>
 
   <div class="current_medications">
@@ -30,9 +35,14 @@
 
   <div class="given_meds">
     <% @given_administrations.each do |administration| %>
-      <div class="given_med">
+    <h3><%= administration.date %></h3>
+      <div class="given_med_card">
         <i class="fa-solid fa-capsules"></i>
-        <h3><%= administration.medication.name %></h3>
+        <div class="given_med_txt">
+          <h3><%= administration.medication.name %></h3>
+          <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.updated_at.strftime("%H:%M") %></p>
+          <p>Given by <strong><%= administration.user.first_name %></strong></p>
+        </div>
       </div>
     <% end %>
   </div>

@@ -10,15 +10,10 @@
         <%= f.input :medication_type, label: 'Type', collection: Medication::MED_TYPE %>
       </div>
       <%= f.input :time_period, collection: Medication::FREQUENCY, class: "form-border" %>
-      <%= f.input :frequency, placeholder: "Times per day", as: :numeric, class: "form-border" %>
+      <%= f.input :frequency, placeholder: "Number of dosage per time period", as: :numeric, class: "form-border" %>
+      <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+      <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
 
-      <div class="input-icon">
-        <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
-      </div>
-
-      <div class="input-icon">
-        <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
-      </div>
       <%= f.submit "Submit", class: 'button' %>
     <% end %>
 </div>
