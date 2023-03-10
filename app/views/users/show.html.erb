@@ -3,7 +3,7 @@
       <%= image_tag "vet-tag", class:"vet-tag" %>
     <% end %>
     <% unless current_user.photo.key.nil? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-large" %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-large" , crop: :fit %>
     <% else %>
       <%= image_tag "avatar.jpg", class:"avatar-large", height: '350px', width:'100%', style: "object-fit: cover;" %>
     <% end %>
