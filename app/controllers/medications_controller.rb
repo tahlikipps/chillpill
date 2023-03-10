@@ -5,7 +5,7 @@ class MedicationsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     @medications = policy_scope(Medication).where(pet: @pet)
     @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
-    @given_administrations = MedicationAdministration.where(is_given: true)
+    @given_administrations = policy_scope(MedicationAdministration).where(is_given: true)
   end
 
   def new

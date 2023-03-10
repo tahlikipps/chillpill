@@ -10,7 +10,7 @@
         <%= f.input :medication_type, label: 'Type', collection: Medication::MED_TYPE %>
       </div>
       <%= f.input :time_period, collection: Medication::FREQUENCY, class: "form-border" %>
-      <%= f.input :frequency, placeholder: "Times per day", as: :numeric, class: "form-border" %>
+      <%= f.input :frequency, placeholder: "Number of dosage per time period", as: :numeric, class: "form-border" %>
 
       <div class="input-icon">
         <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
