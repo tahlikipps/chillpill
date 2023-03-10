@@ -20,7 +20,7 @@
 
          <div class="card-product">
             <% unless current_user.photo.key.nil? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar-large" %>
+                <%= cl_image_tag current_user.photo.key, class: "burger-img" %>
               <% else %>
                 <%= image_tag "avatar", class:"burger-img", style: "object-fit: cover;" %>
               <% end %>
