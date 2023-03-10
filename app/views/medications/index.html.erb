@@ -1,6 +1,8 @@
 <div class="medications_idx container">
 
-  <p>Put some back button</p>
+  <div class="goback-button">
+    <%= link_to "← Go back", pet_path(@pet) %>
+  </div>
 
   <h1>Current meds</h1>
 
@@ -38,8 +40,8 @@
         <i class="fa-solid fa-capsules"></i>
         <div class="given_med_txt">
           <h3><%= administration.medication.name %></h3>
-          <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.date %></p>
-          <p>Given by <strong>user<%#= administration.user.first_name %></strong></p>
+          <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.updated_at.strftime("%H:%M") %></p>
+          <p>Given by <strong><%= administration.user.first_name %></strong></p>
         </div>
       </div>
     <% end %>
