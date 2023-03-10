@@ -4,14 +4,13 @@
     <%#= link_to "#", class: "navbar-brand" do %>
     <%=link_to image_tag("LOGO.png", alt: "My Logo", class: "logo"), root_path, class: "logo-link" %>
     <% unless params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" %>
-        <i class="fa-regular fa-circle-user"></i>
+
     <% end %>
 
     <% unless params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "pages" %>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-action = "click->navbar#toggle", data-navbar-target = "icon">
-      <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon d-none">X</span>
-
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-action = "click->navbar#toggle">
+      <span class="" data-navbar-target = "icon"><i class="fa-solid fa-bars"></i></span>
+      <span class="d-none" data-navbar-target = "icon"><i class="fa-regular fa-x"></i> </span>
     </button>
     <% end %>
 
@@ -20,10 +19,10 @@
         <% if user_signed_in? %>
 
          <div class="card-product">
-            <% if current_user.photo.key.nil? %>
+            <% unless current_user.photo.key.nil? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar-large" %>
               <% else %>
-                <%= image_tag "avatar", class:"avatar-large", height: '50px', width:'50px', style: "object-fit: cover;" %>
+                <%= image_tag "avatar", class:"burger-img", style: "object-fit: cover;" %>
               <% end %>
             <div class="card-product-infos">
               <h2><%=current_user.first_name  %> </h2>
@@ -38,8 +37,10 @@
 
         <div class="pet-grid">
           <% current_user.pets.each do |pet| %>
-              <%= cl_image_tag pet.photo.key, height: "50px", width: "50px", style: "object-fit: cover;" %>
-              <%= pet.name %>
+            <div class="pet-card-grid">
+              <%= cl_image_tag pet.photo.key, height: "65px", width: "65px", style: "object-fit: cover;" %>
+              <div class = "grid-item"><%= pet.name %></div>
+              </div>
               <% end %>
           </div>
 
@@ -48,15 +49,15 @@
 
            <hr>
           <li class="nav-item active">
-            <li><i class="fa-regular fa-house"></i><%= link_to "Home", class: "nav-link" %></li>
+            <li><i class="fa-solid fa-house"></i><%= link_to "Home", class: "nav-link" %></li>
           </li>
           <hr>
           <li class="nav-item active">
-            <li><i class="fa-solid fa-magnifying-glass"></i><%= link_to "Search", class: "nav-link" %></li>
+            <li><i class="fa-solid fa-magnifying-glass-plus"></i><%= link_to "Search", class: "nav-link" %></li>
           </li>
           <hr>
           <li class="nav-item active">
-            <li><i class="fa-regular fa-comment"></i><%= link_to "Vet Chat", class: "nav-link" %></li>
+            <li><i class="fa-solid fa-comment"></i><%= link_to "Vet Chat", class: "nav-link" %></li>
           </li>
           <hr>
           <li class="nav-item active">
@@ -64,19 +65,24 @@
           </li>
           <hr>
           <li class="nav-item active">
-            <li><i class="fa-regular fa-bell"></i><%= link_to "Notifications", class: "nav-link" %></li>
+            <li><i class="fa-solid fa-bell"></i><%= link_to "Notifications", class: "nav-link" %></li>
           </li>
+          <hr>
+          <li class="nav-item active">
+            <li><i class="fa-solid fa-arrow-right-from-bracket"></i><%= link_to "Log out", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %></li>
+          </li>
+
 
           <div class="burger-last">
            <div class ="burger1">
             <li class="nav-item active">
-              <li><i class="fa-sharp fa-regular fa-gear"></i><%= link_to "Setting", class: "nav-link" %></li>
+              <li><i class="fa-solid fa-gear"></i><%= link_to "Setting", class: "nav-link" %></li>
             </li>
            </div>
 
            <div class ="burger1">
             <li class="nav-item active">
-              <li><i class="fa-regular fa-circle-info"></i><%= link_to "Support", class: "nav-link" %></li>
+              <li><i class="fa-solid fa-circle-info"></i><%= link_to "Support", class: "nav-link" %></li>
             </li>
            </div>
 

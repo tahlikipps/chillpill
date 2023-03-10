@@ -7,18 +7,15 @@ export default class extends Controller {
   connect() {
     console.log("hello")
   }
- toggle(){
-  console.log("welcome")
+ toggle() {
   if (this.element.style.overflow === "hidden"){
     this.element.style.overflow ="auto"
-    iconTargets.classList.toggle = ("X")
-  }else{
+  } else {
     this.element.style.overflow ="hidden"
-
-
   }
 
+  this.iconTargets.forEach((icon) => {
+    icon.classList.toggle("d-none")
+  })
  }
-
-
 }

@@ -12,9 +12,11 @@
   z-index: 100;
   background-color: $yellow;
   width: 100%;
-  padding: 16px;
+  padding: 10px;
   padding-top: 65px;
   height: 100vh;
+  overflow: scroll;
+
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -61,11 +63,7 @@
   border-radius: 15px;
 }
 
-.card-product img {
-  height: 60%;
-  width: 100px;
-  object-fit: cover;
-}
+
 
 .card-product h2 {
   font-size: 16px;
@@ -106,4 +104,38 @@
  flex: 1;
  margin-top: 80px;
 
+}
+
+.pet-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-bottom: 30px;
+
+  .pet-card-grid {
+    background-color: white;
+    border-radius: 15px;
+    height: 120px;
+    width: 100px;
+  }
+
+  .pet-card-grid img{
+    padding-top: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 50px;
+  }
+
+  .grid-item{
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+.burger-img{
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+  margin-left: 20px;
+  border-radius: 15px;
 }
