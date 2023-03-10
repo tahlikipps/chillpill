@@ -8,6 +8,7 @@ class PetsController < ApplicationController
     authorize @pet
     MedicationAdministrationService.new(@pet.medications).call
     @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
+    @given_administrations = administrations.where(is_given: true)
   end
 
   def new
@@ -39,7 +40,7 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    @pet = Equipment.find(params[:id])
+    @pet = Pet.find(params[:id])
     @pet.destroy
 
     redirect_to pets_path, status: :see_other
