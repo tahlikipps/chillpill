@@ -47,6 +47,11 @@
 
 .navbar-toggler{
   z-index: 101;
+  border: 0;
+}
+
+.navbar-toggler:focus{
+  box-shadow: none;
 }
 
 #adding a{

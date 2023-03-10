@@ -20,7 +20,7 @@ class PetsController < ApplicationController
     authorize @pet
     @pet.save
     @pet_carer = PetCarer.create(pet: @pet, user: current_user, is_owner: true, status: 1)
-    #todo redirect to show page
+    redirect_to pet_path(@pet)
   end
 
   def edit
