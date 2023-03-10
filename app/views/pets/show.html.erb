@@ -120,11 +120,11 @@
 
         <% unless dosage.is_given == true %>
           <div class="medicationdosage-btn">
-          <%= button_to "Given",  edit_medication_path(dosage, {is_given: true}), method: :patch, data: {turbo_confirm: 'Are you sure?'} %>
+          <%= button_to "Mark Done",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Are you sure?'} %>
           </div>
         <% else %>
           <div class="donedose-btn">
-          <%= button_to "Done",  edit_medication_path(dosage) %>
+          <%= button_to "Done",  pet_medications_path(@pet) %>
           </div>
         <% end %>
         </div>
