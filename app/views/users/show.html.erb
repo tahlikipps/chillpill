@@ -46,7 +46,7 @@
               <div class="profile-petscard">
               <%#= image_tag "pet-avatar", height: '50px', width:'50px', style: "object-fit: cover; border-radius: 50%;" %>
               <%= cl_image_tag pet.photo.key, height: '50px', width:'50px', style: "object-fit: cover; border-radius: 50%;"%>
-              <p><strong><%= pet.name %></strong><p>
+              <h3><%= pet.name %></h3>
               <span class="text-small"><%= Date.today.year - pet.birth_date.year %> year old</span>
               </div>
             <% end %>

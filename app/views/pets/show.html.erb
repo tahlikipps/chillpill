@@ -4,7 +4,7 @@
     <% unless @pet.photo.key.nil? %>
       <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
     <% else %>
-      <%= image_tag "pet-avatar-large", class:"avatar-large", height: '350px', width:'100%', style: "object-fit: cover;" %>
+      <%= image_tag "pet-avatar-large", class:"avatar-large", style: "object-fit: cover;" %>
     <% end %>
 </div>
 

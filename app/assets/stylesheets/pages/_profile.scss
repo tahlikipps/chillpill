@@ -19,7 +19,7 @@
 .avatar-large {
   width: 100%;
   height: 350px;
-  border-radius: 0px 0px 100px 100px;
+  border-radius: 0;
   margin-bottom: 10px;
 }
 
@@ -75,17 +75,29 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 16px;
   margin-bottom: 20px;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .profile-petscard {
   width: 100px;
-  height: 120px;
+  height: 130px;
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   clip-path: inset(0px -10px -10px -10px);
-  padding: 0 10px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 10px;
   text-align: center;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
 }
 
 .profile-petscard img {
@@ -98,7 +110,7 @@
 }
 
 .text-small {
-  color: grey;
+  color: black;
   font-weight: lighter;
   font-size: 10px;
   text-decoration: none;
@@ -106,12 +118,12 @@
 
 .profile-petscard-add {
   width: 100px;
-  height: 120px;
+  height: 130px;
   margin-top: 20px;
   margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   clip-path: inset(0px -10px -10px -10px);
-  padding: 0 10px;
+  padding: 10px;
   border-radius: 10px;
   background-color: $blue;
   text-align: center;
@@ -142,7 +154,7 @@
 
 .petname-container {
   width: 100%;
-  border-radius: 100px 100px 0px 0px;
+  border-radius: 50px 50px 0px 0px;
   background-color: white;
   margin-bottom: 20px;
   position: absolute;
@@ -151,7 +163,7 @@
 }
 
 .petname-container h2{
-  padding-top: 20px;
+  padding-top: 25px;
   padding-bottom: 20px;
   height: 100px;
   text-align: center;
@@ -199,14 +211,17 @@
 
 .pet-medication-card {
   width: 100%;
-  height: 200px;
   margin-top: 10px;
   margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   clip-path: inset(0px -10px -10px -10px);
-  padding: 0 10px;
+  padding: 20px;
   border-radius: 10px;
   position: relative;
+
+  a {
+    color: black;
+  }
 }
 
 .seemedication-tag {
