@@ -6,6 +6,15 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: $yellow;
+  width: 100%;
+  padding: 16px;
+  padding-top: 65px;
+  height: 100vh;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -15,4 +24,86 @@
 .logo{
   width: 130px;
   padding-top: 15px;
+
+}
+.container-fluid .logo-link{
+  z-index: 101;
+}
+
+.fa-solid{
+  margin-right: 10px;
+}
+
+.fa-regular{
+  margin-right: 10px;
+}
+
+.navbar-nav a{
+ color: black;
+ text-decoration: none;
+}
+
+.navbar-toggler{
+  z-index: 101;
+}
+
+#adding a{
+  text-align: right;
+}
+
+.card-product {
+  margin-top: 30px;
+  overflow: hidden;
+  height: 80px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.card-product img {
+  height: 60%;
+  width: 100px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar-margin{
+  margin-top: 30px;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.card-arrow a{
+  margin-left: 100px;
+}
+
+#adding a{
+  margin-left: 140px;
+}
+
+ .burger-last {
+  display: flex;
+
+}
+
+.burger1 {
+ flex: 1;
+ margin-top: 80px;
+
 }
