@@ -5,7 +5,7 @@
     <% unless current_user.photo.key.nil? %>
       <%= cl_image_tag current_user.photo.key, class: "avatar-large-human" , crop: :fit %>
     <% else %>
-      <%= image_tag "avatar.jpg", class:"avatar-large-human", height: '350px', width:'100%', style: "object-fit: cover;" %>
+      <%= image_tag "avatar.jpg", class:"avatar-large-human" %>
     <% end %>
 
   <div class="container">
@@ -15,22 +15,29 @@
 
 <div class="container">
   <div class="profile-aboutmecard">
-    <%= link_to edit_user_registration_path do %>
-      <span class="editprofile-tag">Edit profile</span>
-    <% end %>
-    <h2>About me</h2>
-    <p> ChillPiller since: <%= current_user.created_at.strftime("%B #{current_user.created_at.day.ordinalize}, %Y") %></p>
+    <div class="user-card-txt">
+      <h2>About me</h2>
+      <%= link_to edit_user_registration_path, class: "editprofile-tag" do %>
+        Edit profile
+      <% end %>
+    </div>
+
+    <p style="color: #C0C0C0; font-size: 15px;">ChillPiller since: <%= current_user.created_at.strftime("%B #{current_user.created_at.day.ordinalize}, %Y") %></p>
+    <p style="margin-bottom:0;">Hello I am Laia and I really love my pets, they're the most beautiful things in the world.</p>
     <%#= IF WE CAN, ADD Longest Medication Streak: <%= current_user.medications_administration.longeststreak%>
   </div>
+
   <div class="profile-contactcard-container">
     <div class="profile-contactcard">
       <p><strong>Address</strong><p>
       <p><%= current_user.address %></p>
     </div>
-      <div class="profile-contactcard">
+
+    <div class="profile-contactcard">
       <p><strong>Phone number</strong><p>
       <p><%= current_user.phone_number %></p>
     </div>
+
     <div class="profile-contactcard">
       <p><strong>Email</strong><p>
       <p><%= current_user.email %></p>

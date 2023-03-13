@@ -2,7 +2,7 @@
       <% unless @pet.photo.key.nil? %>
         <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
       <% else %>
-        <%= image_tag "pet-avatar-large", class:"avatar-large", style: "object-fit: cover;" %>
+        <%= image_tag "pet-avatar-large", class:"avatar-large" %>
       <% end %>
   </div>
 
@@ -14,7 +14,7 @@
 <div class="pet-profile">
     <div class="petdetails-container">
       <div class="petdetails-card">
-        <h4><%= pluralize @pet_age, "year" %> old</h4>
+        <h4><%= pluralize @pet_age, "year" %></h4>
         <p>Age</p>
       </div>
       <div class="petdetails-card">
@@ -45,10 +45,14 @@
 
     <div class="pet-medication-card">
     <%#= @administrations.count %>
-      <h2><%= @pet.name %>'s medication</h2>
-      <%= link_to pet_medications_path(@pet) do %>
-        <span class="seemedication-tag">See all</span>
-      <% end %>
+
+      <div class="pet-med-card-txt">
+        <h2><%= @pet.name %>'s medication</h2>
+        <%= link_to pet_medications_path(@pet), class: "seemedication-tag" do %>
+          See all
+        <% end %>
+      </div>
+
       <div class="medicationstatus-container">
         <div class="medicationstatus-card">
           <span class="text-small">Mon</span>
