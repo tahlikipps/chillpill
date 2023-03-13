@@ -64,6 +64,44 @@
 }
 
 
+/* If current meds empty */
+
+.zero-meds-msg {
+  margin: 50px 0;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #ECEDEF;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  // a {
+  //   font-family: $headers-font;
+  //   font-weight: 800;
+  //   color: $blue;
+  //   text-decoration: none;
+  // }
+
+  a {
+    font-family: $headers-font;
+    width: 60%;
+    padding: 15px 30px;
+    color: white;
+    background-color: $blue;
+    border-radius: 15px;
+    text-decoration: none;
+  }
+
+}
+
+
 /* Style for given meds */
 
 .given_meds {
@@ -91,4 +129,15 @@
     margin: 0;
   }
 
+}
+
+/* If given meds empty */
+
+.given_meds_empty {
+  padding: 50px;
+
+  i {
+    margin-top: 10px;
+    font-size: 24px;
+  }
 }

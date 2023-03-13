@@ -1,9 +1,35 @@
 .mapboxgl-popup {
-  max-width: 200px;
-  color: $black;
+  max-width: 100px;
+  color: $white;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  border-radius: 15px;
+  background-color: $dark-blue;
+
+}
+
+.home-find-vets .mapboxgl-map{
+  width: 100%;
+  height: 600px;
+  border-radius: 15px;
+  h2 {
+    margin:10px;
+    font-size: medium
+  }
+}
+
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl{
+  border-radius: 15px !important;
+  width: 80% !important;
+}
+
+
+.mapboxgl-ctrl-geocoder--input{
+   &:focus{
+    outline: none !important;
+  }
+
 }

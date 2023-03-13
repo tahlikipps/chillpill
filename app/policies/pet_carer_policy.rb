@@ -1,8 +1,12 @@
-class PetPolicy < ApplicationPolicy
+class PetCarerPolicy < ApplicationPolicy
   class Scope < Scope
+    # NOTE: Be explicit about which records you allow access to!
+    # def resolve
+    #   scope.all
+    # end
   end
 
-  def show?
+    def index?
     true
   end
 
@@ -23,10 +27,10 @@ class PetPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
 
   def destroy?
-    true
+    record.user == user
   end
 end
