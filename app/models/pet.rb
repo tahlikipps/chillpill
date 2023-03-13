@@ -12,4 +12,9 @@ class Pet < ApplicationRecord
     owner = pet_carers.find{ |carer| carer.is_owner? }
     owner.user if owner
   end
+
+  def vet
+    vet = pet_carers.find{ |carer| carer.user.is_vet? }
+    vet.user if vet
+  end
 end

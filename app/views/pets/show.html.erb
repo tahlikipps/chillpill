@@ -22,22 +22,30 @@
         <p>Species</p>
       </div>
       <div class="petdetails-card">
-      <%# unless @pet.pet_carers.is_vet.nil? %>
-        <%#= @pet.pet_carers.is_vet.first_name %>
-      <%# else %>
-        <h4><%= link_to "Add vet", edit_pet_path(@pet) %></h4>
-      <%# end %>
+      <% unless @pet.vet.nil? %>
+        <%= @pet.vet.first_name %>
+        <%#= link_to profile_path(@vet) do %>
+          <%#= @pet.vet.first_name %>
+        <%# end %>
+      <% else %>
+        <h4><%= link_to "Add vet", new_pet_pet_carer_path(@pet) %></h4>
+      <% end %>
         <p>Vet</p>
       </div>
       <div class="petdetails-card">
       <% unless @pet.owner.nil? %>
         <%= link_to profile_path(current_user) do %>
-          <h4><%= @pet.owner.first_name %></h4>
+         <h4><%= @pet.owner.first_name %></h4>
         <% end %>
-      <% else %>
-        <h4><%= link_to "Add carer", edit_pet_path(@pet) %></h4>
+      <p><%= link_to "Add another carer", new_pet_pet_carer_path(@pet) %>
+      <p>Human</p>
       <% end %>
-        <p>Human</p>
+
+      <%# @pet.pet_carers.each do |carer| %>
+        <%#= carer.user.first_name %>
+      <%# end %>
+        <%#= link_to "Add carer", new_pet_pet_carer_path(@pet) %>
+
       </div>
     </div>
 
@@ -52,11 +60,11 @@
       <div class="medicationstatus-container">
         <div class="medicationstatus-card">
           <span class="text-small">Mon</span>
-            <%# if weekday_status("Monday") == true %>
+            <% if weekday_status("Monday") == true %>
               <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
-            <%# else %>
-              <%#= image_tag "greycircle", height:"40px", width:"40px" %>
-            <%# end %>
+            <% else %>
+              <%= image_tag "greycircle", height:"40px", width:"40px" %>
+            <% end %>
         </div>
         <div class="medicationstatus-card">
           <span class="text-small">Tues</span>
@@ -125,7 +133,7 @@
           <div class="is_given_status-container">
           <% unless dosage.is_given == true %>
             <div class="medicationdosage-btn">
-            <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Are you sure?'} %>
+            <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Thank you, human!'} %>
             </div>
           <% else %>
             <div class="donedose-btn">
