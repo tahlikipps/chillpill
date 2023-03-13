@@ -4,9 +4,9 @@ class MedicationAdministrationsController < ApplicationController
     @pet = @medication_administration.medication.pet
 
     if @medication_administration.update(is_given: params[:is_given], user_id: current_user.id, date: Date.today)
-       redirect_to pet_path(@pet)
+      redirect_to pet_path(@pet)
     else
-     render 'pets/show', status: :unprocessable_entity
+      render 'pets/show', status: :unprocessable_entity
     end
 
     authorize @medication_administration
