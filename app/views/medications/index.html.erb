@@ -16,7 +16,22 @@
       <% @medications.each do |medication| %>
         <div class="current_medications_cards">
           <div class="curr_meds_top">
-            <i class="fa-solid fa-capsules"></i>
+            <% if medication.medication_type == "Capsule" %>
+              <i class="fa-solid fa-capsules"></i>
+            <% elsif medication.medication_type == "Tablet" %>
+              <i class="fa-solid fa-tablets"></i>
+            <% elsif medication.medication_type == "Liquid" %>
+              <i class="fa-solid fa-droplet"></i>
+            <% elsif medication.medication_type == "Spray" %>
+              <i class="fa-solid fa-spray-can"></i>
+            <% elsif medication.medication_type == "Cream" %>
+              <i class="fa-solid fa-poo"></i>
+            <% elsif medication.medication_type == "Injection" %>
+              <i class="fa-solid fa-syringe"></i>
+            <% else %>
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+            <% end %>
+
             <h3><%= medication.name %></h3>
           </div>
 
@@ -50,7 +65,21 @@
       <% @given_administrations.each do |administration| %>
       <h3><%= administration.date %></h3>
         <div class="given_med_card">
-          <i class="fa-solid fa-capsules"></i>
+            <% if medication.medication_type == "Capsule" %>
+              <i class="fa-solid fa-capsules"></i>
+            <% elsif medication.medication_type == "Tablet" %>
+              <i class="fa-solid fa-tablets"></i>
+            <% elsif medication.medication_type == "Liquid" %>
+              <i class="fa-solid fa-droplet"></i>
+            <% elsif medication.medication_type == "Spray" %>
+              <i class="fa-solid fa-spray-can"></i>
+            <% elsif medication.medication_type == "Cream" %>
+              <i class="fa-solid fa-poo"></i>
+            <% elsif medication.medication_type == "Injection" %>
+              <i class="fa-solid fa-syringe"></i>
+            <% else %>
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+            <% end %>
           <div class="given_med_txt">
             <h3><%= administration.medication.name %></h3>
             <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.updated_at.strftime("%H:%M") %></p>
