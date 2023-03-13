@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   resources :pets, only: %i[new show create edit update destroy] do
     resources :medications, only: %i[index new create]
+    resources :pet_carers, only: %i[index new create]
   end
   resources :medications, only: %i[edit update destroy]
   resources :medication_administrations, only: :update
+  resources :pet_carers, only: %i[edit update destroy]
 end
