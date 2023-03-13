@@ -137,12 +137,10 @@
 }
 
 .icon {
-  padding: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  height: 40px;
+  width: 40px;
   border: none;
   background-color: #F9C51B;
-  align-self: flex-end;
   position: fixed;
   bottom: 20px;
   left: 45%;
@@ -150,9 +148,9 @@
   outline: none !important;
   touch-action: manipulation !important;
   transition: 0.25s ease 0s, transform 0.25s ease 0s !important;
-}
-
-.icon .fa-solid{
   text-align: center;
-  padding-left: 6px;
+
+  i {
+    margin: 0;
+  }
 }
