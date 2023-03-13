@@ -3,13 +3,13 @@
       <%= image_tag "vet-tag", class:"vet-tag" %>
     <% end %>
     <% unless current_user.photo.key.nil? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-large" %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-large-human" , crop: :fit %>
     <% else %>
-      <%= image_tag "avatar.jpg", class:"avatar-large", height: '350px', width:'100%', style: "object-fit: cover;" %>
+      <%= image_tag "avatar.jpg", class:"avatar-large-human", height: '350px', width:'100%', style: "object-fit: cover;" %>
     <% end %>
 
   <div class="container">
-    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <h2 style="margin-top: 20px;"><%= current_user.first_name %> <%= current_user.last_name %></h2>
   </div>
 </div>
 

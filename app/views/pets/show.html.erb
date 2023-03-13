@@ -1,5 +1,4 @@
-
-  <div class="petimage-container">
+<div class="petimage-container">
       <% unless @pet.photo.key.nil? %>
         <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
       <% else %>
@@ -11,7 +10,7 @@
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
   </div>
-  
+
 <div class="pet-profile">
     <div class="petdetails-container">
       <div class="petdetails-card">
@@ -54,7 +53,7 @@
         <div class="medicationstatus-card">
           <span class="text-small">Mon</span>
             <%# if weekday_status("Monday") == true %>
-              <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
             <%# else %>
               <%#= image_tag "greycircle", height:"40px", width:"40px" %>
             <%# end %>
@@ -62,7 +61,7 @@
         <div class="medicationstatus-card">
           <span class="text-small">Tues</span>
             <%# if medication.tuesday.is_given == true %>
-              <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
             <%# else %>
               <%#= image_tag "greycircle", height:"40px", width:"40px" %>
             <%# end %>
@@ -70,7 +69,7 @@
         <div class="medicationstatus-card">
           <span class="text-small">Wed</span>
             <%# if medication.wednesday.is_given == true %>
-              <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
             <%# else %>
               <%#= image_tag "greycircle", height:"40px", width:"40px" %>
             <%# end %>
@@ -78,7 +77,7 @@
         <div class="medicationstatus-card">
           <span class="text-small">Thu</span>
             <%# if medication.thursday.is_given == true %>
-              <%= image_tag "yellowtick", height:"40px", width:"40px" %>
+              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
             <%# else %>
               <%#= image_tag "greycircle", height:"40px", width:"40px" %>
             <%# end %>
@@ -88,7 +87,7 @@
             <%# if medication.friday.is_given == true %>
               <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
             <%# else %>
-              <%= image_tag "greycircle", height:"40px", width:"40px" %>
+              <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
             <%# end %>
         </div>
         <div class="medicationstatus-card">
@@ -96,7 +95,7 @@
             <%# if medication.saturday.is_given == true %>
               <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
             <%# else %>
-              <%= image_tag "greycircle", height:"40px", width:"40px" %>
+              <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
             <%# end %>
         </div>
         <div class="medicationstatus-card">
@@ -104,7 +103,7 @@
             <%# if medication.sunday.is_given == true %>
               <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
             <%# else %>
-              <%= image_tag "greycircle", height:"40px", width:"40px" %>
+              <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
             <%# end %>
         </div>
       </div>
@@ -117,7 +116,7 @@
         <h3><%= dosage.date.strftime("%d - %b") %></h3>
         <div class="medicationdosage-card">
           <div class="medicationdosage-img">
-            <%= image_tag "medicine", height:"50px", width:"50px" %>
+            <%= image_tag "medicine.png", height:"50px", width:"50px" %>
           </div>
           <div class="medicationdosage-text">
             <h3><%= dosage.medication.name %></h3>

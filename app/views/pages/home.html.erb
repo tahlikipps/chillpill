@@ -39,8 +39,11 @@
 <div class="home-find-vets">
   <h2>Find the closest vet</h2>
   <p>We have associated vets all around the world and we are so awesome.</p>
-
-  <div class="home-find-vets-map"></div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+   </div>
 </div>
 
 <div class="home-witnesses">
@@ -62,9 +65,4 @@
     <p>— Wagon Le</p>
   </div>
 
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-   </div>
 </div>

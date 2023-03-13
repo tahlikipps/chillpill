@@ -21,6 +21,7 @@ class PetsController < ApplicationController
     authorize @pet
     @pet.save
     @pet_carer = PetCarer.create(pet: @pet, user: current_user, is_owner: true, status: 1)
+
     @owner = PetCarer.all.where(user_id: current_user.id, is_owner: true)
     redirect_to profile_path
   end
