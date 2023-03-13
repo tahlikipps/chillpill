@@ -1,20 +1,26 @@
-<div class="form-container">
+<div class="full-pages full-vh">
+  <div class="container">
+  <h2><strong> Add a new carer <br> or vet </strong></h2>
+
     <%= simple_form_for [@pet, @pet_carer] do |f| %>
       <%= f.simple_fields_for :user do |r| %>
-        <div class="input-icon">
-          <i class="fa-regular fa-envelope"></i>
-          <%= r.input :email, label: 'Carer email', placeholder: 'Enter carer email linked with their ChillPill account' %>
+
+      <div class="form-inputs">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+          </div>
+          <%= r.input :email,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          wrapper: false,
+                          input_html: { autocomplete: "email" , placeholder: "Enter email registered with ChillPill"}%>
         </div>
-    <% end %>
-      <div class="d-flex justify-content-between">
-        <%#= f.input :dosage, placeholder: 'Ex: 200mg' %>
       </div>
-        <%#= f.input :medication_type, label: 'Type', collection: Medication::MED_TYPE %>
-      <%#= f.input :frequency, placeholder: "Number of dosage per time period", as: :numeric, class: "form-border" %>
-      <%#= f.input :time_period, collection: Medication::FREQUENCY, class: "form-border" %>
-      <%#= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
-      <%#= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+    <% end %>
 
       <%= f.submit "Add carer", class: 'button' %>
     <% end %>
+  </div>
 </div>

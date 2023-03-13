@@ -24,7 +24,7 @@
 
     <p style="color: #C0C0C0; font-size: 15px;">ChillPiller since: <%= current_user.created_at.strftime("%B #{current_user.created_at.day.ordinalize}, %Y") %></p>
     <p style="margin-bottom:0;">Hello I am Laia and I really love my pets, they're the most beautiful things in the world.</p>
-    <%#= IF WE CAN, ADD Longest Medication Streak: <%= current_user.medications_administration.longeststreak%>
+    <%#= current_user.administrations.count%>
   </div>
 
   <div class="profile-contactcard-container">
