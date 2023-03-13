@@ -86,7 +86,21 @@
         <h3><%= dosage.date.strftime("%d - %b") %></h3>
         <div class="medicationdosage-card">
           <div class="medicationdosage-img">
-            <%= image_tag "medicine.png", height:"50px", width:"50px" %>
+            <% if dosage.medication.medication_type == "Capsule" %>
+              <i class="fa-solid fa-capsules"></i>
+            <% elsif dosage.medication.medication_type == "Tablet" %>
+              <i class="fa-solid fa-tablets"></i>
+            <% elsif dosage.medication.medication_type == "Liquid" %>
+              <i class="fa-solid fa-droplet"></i>
+            <% elsif dosage.medication.medication_type == "Spray" %>
+              <i class="fa-solid fa-spray-can"></i>
+            <% elsif dosage.medication.medication_type == "Cream" %>
+              <i class="fa-solid fa-poo"></i>
+            <% elsif dosage.medication.medication_type == "Injection" %>
+              <i class="fa-solid fa-syringe"></i>
+            <% else %>
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+            <% end %>
           </div>
           <div class="medicationdosage-text">
             <h3><%= dosage.medication.name %></h3>
