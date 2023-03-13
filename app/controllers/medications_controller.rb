@@ -20,6 +20,7 @@ class MedicationsController < ApplicationController
     @medication.pet = @pet
 
     if @medication.save
+      MedicationAdministrationService.new(@medication).call
       redirect_to pet_medications_path(@medication.pet)
     else
       render 'new', status: :unprocessable_entity
