@@ -6,44 +6,58 @@
 
   <h1>Current meds</h1>
 
-  <div class="current_medications">
-    <% @medications.each do |medication| %>
-      <div class="current_medications_cards">
-        <div class="curr_meds_top">
-          <i class="fa-solid fa-capsules"></i>
-          <h3><%= medication.name %></h3>
-        </div>
-
-        <div class="curr_meds_icons">
-          <div class="curr_meds_icon">
-            <%= link_to edit_medication_path(medication) do %>
-              <i class="fa-regular fa-pen-to-square"></i>
-            <% end %>
+  <% if @medications.count == 0 %>
+    <div class="zero-meds-msg">
+      <h2>No current medications</h2>
+      <%= link_to "Add medication", new_pet_medication_path(@pet) %>
+    </div>
+  <% else %>
+    <div class="current_medications">
+      <% @medications.each do |medication| %>
+        <div class="current_medications_cards">
+          <div class="curr_meds_top">
+            <i class="fa-solid fa-capsules"></i>
+            <h3><%= medication.name %></h3>
           </div>
 
-          <div class="curr_meds_icon">
-            <%= link_to medication_path(medication), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-regular fa-trash-can"></i>
-            <% end %>
+          <div class="curr_meds_icons">
+            <div class="curr_meds_icon">
+              <%= link_to edit_medication_path(medication) do %>
+                <i class="fa-regular fa-pen-to-square"></i>
+              <% end %>
+            </div>
+
+            <div class="curr_meds_icon">
+              <%= link_to medication_path(medication), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <i class="fa-regular fa-trash-can"></i>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <h1>Medication history</h1>
 
-  <div class="given_meds">
-    <% @given_administrations.each do |administration| %>
-    <h3><%= administration.date %></h3>
-      <div class="given_med_card">
-        <i class="fa-solid fa-capsules"></i>
-        <div class="given_med_txt">
-          <h3><%= administration.medication.name %></h3>
-          <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.updated_at.strftime("%H:%M") %></p>
-          <p>Given by <strong><%= administration.user.first_name %></strong></p>
+  <% if @given_administrations.count == 0 %>
+    <div class="zero-meds-msg given_meds_empty">
+      <h2>Medications history empty, your pet is really healthy!</h2>
+      <i class="fa-regular fa-face-laugh-wink"></i>
+    </div>
+  <% else %>
+    <div class="given_meds">
+      <% @given_administrations.each do |administration| %>
+      <h3><%= administration.date %></h3>
+        <div class="given_med_card">
+          <i class="fa-solid fa-capsules"></i>
+          <div class="given_med_txt">
+            <h3><%= administration.medication.name %></h3>
+            <p><%= administration.medication.frequency %> <%= administration.medication.medication_type %> at <%= administration.updated_at.strftime("%H:%M") %></p>
+            <p>Given by <strong><%= administration.user.first_name %></strong></p>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
