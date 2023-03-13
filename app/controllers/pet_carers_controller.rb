@@ -9,7 +9,7 @@ class PetCarersController < ApplicationController
   def create
     @pet = Pet.find(params[:pet_id])
     @user = User.find_by(email: params[:pet_carer][:user][:email])
-    @pet_carer = PetCarer.new( status: 1, is_owner: false )
+    @pet_carer = PetCarer.new( status: 1, is_owner: false)
     @pet_carer.pet = @pet
     @pet_carer.user = @user
 
