@@ -132,7 +132,7 @@
           </div>
           <div class="medicationdosage-text">
             <h3><%= dosage.medication.name %></h3>
-            <p><span class="text-small"><%= dosage.medication.dosage %></span></p>
+            <p><span class="text-small"><%= dosage.medication.dosage %> <%= dosage.medication.medication_type %></span></p>
           </div>
           <div class="is_given_status-container">
           <% unless dosage.is_given == true %>

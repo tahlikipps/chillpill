@@ -3,7 +3,7 @@
       <%= image_tag "vet-tag", class:"vet-tag" %>
     <% end %>
     <% unless current_user.photo.key.nil? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-large-human" , crop: :fit %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-large-human" %>
     <% else %>
       <%= image_tag "avatar.jpg", class:"avatar-large-human" %>
     <% end %>
@@ -23,7 +23,7 @@
     </div>
 
     <p style="color: #C0C0C0; font-size: 15px;">ChillPiller since: <%= current_user.created_at.strftime("%B #{current_user.created_at.day.ordinalize}, %Y") %></p>
-    <p style="margin-bottom:0;">Hello I am Laia and I really love my pets, they're the most beautiful things in the world.</p>
+    <p style="margin-bottom:0;"><%= current_user.bio %></p>
     <%#= IF WE CAN, ADD Longest Medication Streak: <%= current_user.medications_administration.longeststreak%>
   </div>
 

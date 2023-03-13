@@ -9,14 +9,21 @@
 require 'faker'
 require "open-uri"
 
+
+puts "Destroying past seeds..."
+
 PetCarer.destroy_all
 Medication.destroy_all
 Pet.destroy_all
 User.destroy_all
 
+
+puts "Creating new seeds..."
+
 user1 = User.new(
   first_name: "Laia",
   last_name: "Martínez",
+  bio: "Hello I am Laia and I really love my pets, they're the most beautiful things in the world.",
   phone_number: "+344566467",
   address: "Carrer de Bruc 120, Barcelona",
   email: "Laia@gmail.com",
@@ -29,7 +36,7 @@ user1.save!
 
 pet = Pet.new(
   name: "Love",
-  species: 'dog',
+  species: 'Dog',
   address: "Carrer de Bruc 120, Barcelona",
   birth_date: Date.new(2021, 1, 1)
 )
@@ -73,7 +80,7 @@ user2.save!
 
 # pet = Pet.new(
 #   name: "Catty",
-#   species: "cat",
+#   species: "Cat",
 #   address: "Carrer de Provença, 120",
 #   birth_date: Date.new(2021, 5, 1)
 # )
