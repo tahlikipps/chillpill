@@ -59,9 +59,9 @@
 
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
-      <p><%= link_to edit_pet_path(@pet) do %>
-        Edit Pet Details</p>
-      <% end %>
+        <%= link_to edit_pet_path(@pet) do %>
+          Edit pet details
+        <% end %>
   </div>
 
 <div class="pet-profile">
