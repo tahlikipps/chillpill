@@ -73,7 +73,7 @@
           <span class="text-small"><%= date.strftime('%a %d') %></span>
           <% day_administrations = MedicationAdministration.joins(:medication).where(date: date.all_day, medication: { pet_id: @pet.id }) %>
           <% if day_administrations.empty? %>
-            <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
+            <%= image_tag "no-meds.png", height:"40px", width:"40px" %>
           <% elsif day_administrations.all? { |administration| administration.is_given? }%>
             <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
           <% else  %>
@@ -86,6 +86,7 @@
     </div>
 
     <div class="medicationadministration-container">
+    <% unless @administrations.count < 1 %>
     <h3><%= Date.today.strftime("%d - %b") %></h3>
     <% @administrations.each do |dosage| %>
       <div class="medicationadministration-card">
@@ -114,7 +115,7 @@
           <div class="is_given_status-container">
           <% unless dosage.is_given == true %>
             <div class="medicationdosage-btn">
-            <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Thank you, human!'} %>
+            <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Are you sure, human?'} %>
             </div>
           <% else %>
             <div class="donedose-btn">
@@ -124,6 +125,7 @@
           </div>
         </div>
       </div>
+      <% end %>
       <% end %>
     </div>
 </div>

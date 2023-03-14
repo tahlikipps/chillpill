@@ -12,7 +12,7 @@
         <% unless carer.user.photo.key.nil? %>
           <%= cl_image_tag carer.user.photo.key, class: "burger-img" %>
         <% else %>
-          <%= image_tag "avatar.jpg", class:"burger-img", style: "object-fit: cover;" %>
+          <%= image_tag "avatar.png", class:"burger-img", style: "object-fit: cover;" %>
         <% end %>
         <div class="card-product-infos">
           <h2><%= carer.user.first_name  %></h2>
