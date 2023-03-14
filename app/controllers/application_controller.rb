@@ -8,12 +8,16 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
   def after_sign_in_path_for(resource)
-    profile_path(current_user) # your path
+    profile_path # your path
   end
 
   def configure_permitted_parameters
@@ -21,6 +25,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :address, :phone_number, :is_vet])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :address, :phone_number, :is_vet])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :address, :phone_number, :is_vet, :photo, :bio])
   end
 end

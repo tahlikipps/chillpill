@@ -22,7 +22,7 @@
     left: 20px;
   }
 
-  input, select {
+  input, select, textarea {
     border: 1px solid black;
     border-radius: 15px;
     color: black;
@@ -31,7 +31,11 @@
     font-size: 20px;
   }
 
-  input:focus, select:focus {
+  textarea {
+    min-height: 150px;
+  }
+
+  input:focus, select:focus, textarea:focus {
     color: black;
     border: 1px solid black;
   }

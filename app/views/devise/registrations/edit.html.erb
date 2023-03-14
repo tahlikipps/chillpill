@@ -1,6 +1,6 @@
 <div class="user-form">
   <div class="goback-button">
-    <%= link_to "← Go back", :back %>
+    <%= link_to "← Go back", profile_path %>
   </div>
 
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
@@ -12,6 +12,7 @@
       <%= f.input :first_name, autofocus: true %>
       <%= f.input :last_name, autofocus: true %>
       <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :bio, autofocus: true %>
       <%= f.input :phone_number, autofocus: true %>
       <%= f.input :address, autofocus: true %>
 
