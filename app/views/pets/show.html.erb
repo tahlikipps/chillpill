@@ -1,18 +1,67 @@
 
+<%# <div data-controller="animation" id="success-animation" class="d-none"> %>
+<div data-controller="animation" id="success-animation" class="d-none" >
+  <h2>Hey, thank you human! <br> I feel better now. <i class="fa-solid fa-paw"></i></h2>
+  <%= image_tag 'pet-love.gif' %>
+</div>
+<div class="petimage-container">
+  <% unless @pet.photo.key.nil? %>
+    <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
+  <% else %>
+    <%= image_tag "pet-avatar-large", class:"avatar-large" %>
+  <% end %>
+</div>
+
+
+<div class="petname-container">
+  <h2><%= @pet.name %></h2>
+</div>
+
+<div class="pet-profile">
+  <div class="petdetails-container">
+    <div class="petdetails-card">
+      <h4><%= pluralize @pet_age, "year" %></h4>
+      <p>Age</p>
+    </div>
+    <div class="petdetails-card">
+      <h4><%= @pet.species.capitalize %></h4>
+      <p>Species</p>
+    </div>
+    <div class="petdetails-card">
+    <% unless @pet.vet.nil? %>
+      <%= @pet.vet.first_name %>
+      <%#= link_to profile_path(@vet) do %>
+        <%#= @pet.vet.first_name %>
+      <%# end %>
+    <% else %>
+      <h4><%= link_to "Add vet", new_pet_pet_carer_path(@pet) %></h4>
+    <% end %>
+      <p>Vet</p>
+    </div>
+    <div class="petdetails-card">
+    <% unless @pet.owner.nil? %>
+      <%= link_to profile_path(current_user) do %>
+        <h4><%= @pet.owner.first_name %></h4>
+      <% end %>
+    <p><%= link_to "Add another carer", new_pet_pet_carer_path(@pet) %>
+    <p>Human</p>
+    <% end %>
+
+
 <div class="petimage-container">
       <% unless @pet.photo.key.nil? %>
         <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
       <% else %>
-        <%= image_tag "pet-avatar-large", class:"avatar-large" %>
+        <%= image_tag "pet-avatar-large.png", class:"avatar-large" %>
       <% end %>
   </div>
 
 
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
-      <p><%= link_to edit_pet_path(@pet) do %>
-        Edit Pet Details</p>
-      <% end %>
+        <%= link_to edit_pet_path(@pet) do %>
+          Edit pet details
+        <% end %>
   </div>
 
 <div class="pet-profile">
@@ -42,7 +91,7 @@
          <h4><%= @pet.owner.first_name %></h4>
         <%# end %>
       <p>Human</p>
-      <p><%= link_to "+ Add a carer", new_pet_pet_carer_path(@pet) %>
+      <p><%= link_to "Manage carers", pet_pet_carers_path(@pet) %>
       <% end %></p>
 
       <%# @pet.pet_carers.each do |carer| %>
@@ -53,9 +102,25 @@
       </div>
     </div>
 
+    <%# @pet.pet_carers.each do |carer| %>
+      <%#= carer.user.first_name %>
+    <%# end %>
+      <%#= link_to "Add carer", new_pet_pet_carer_path(@pet) %>
 
+    </div>
+  </div>
 
-    <div class="pet-medication-card">
+  <div class="pet-medication-card">
+  <%#= @administrations.count %>
+
+    <div class="pet-med-card-txt">
+      <h2><%= @pet.name %>'s medication</h2>
+      <%= link_to pet_medications_path(@pet), class: "seemedication-tag" do %>
+        See all
+      <% end %>
+    </div>
+
+<div class="pet-medication-card">
 
       <div class="pet-med-card-txt">
         <h2><%= @pet.name %>'s medication</h2>
@@ -65,62 +130,19 @@
       </div>
 
       <div class="medicationstatus-container">
-        <div class="medicationstatus-card">
-          <span class="text-small">Mon</span>
-            <%# <% if weekday_status("Monday") == true %>
-              <%# <%= image_tag "yellowtick.png", height:"40px", width:"40px" %> %>
-            <%# <% else %>
-              <%# <%= image_tag "greycircle", height:"40px", width:"40px" %> %>
-            <%# <% end %>
-        </div>
-        <div class="medicationstatus-card">
-          <span class="text-small">Tues</span>
-            <%# if medication.tuesday.is_given == true %>
-              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
-            <%# else %>
-              <%#= image_tag "greycircle", height:"40px", width:"40px" %>
-            <%# end %>
-        </div>
-        <div class="medicationstatus-card">
-          <span class="text-small">Wed</span>
-            <%# if medication.wednesday.is_given == true %>
-              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
-            <%# else %>
-              <%#= image_tag "greycircle", height:"40px", width:"40px" %>
-            <%# end %>
-        </div>
-        <div class="medicationstatus-card">
-          <span class="text-small">Thu</span>
-            <%# if medication.thursday.is_given == true %>
-              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
-            <%# else %>
-              <%#= image_tag "greycircle", height:"40px", width:"40px" %>
-            <%# end %>
-        </div>
-        <div class="medicationstatus-card">
-          <span class="text-small">Fri</span>
-            <%# if medication.friday.is_given == true %>
-              <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
-            <%# else %>
+        <% (Date.today.beginning_of_week(:sunday)...Date.today.end_of_week).each do |date| %>
+          <div class="medicationstatus-card">
+            <span class="text-small"><%= date.strftime('%a %d') %></span>
+            <% day_administrations = MedicationAdministration.joins(:medication).where(date: date.all_day, medication: { pet_id: @pet.id }) %>
+            <% if day_administrations.empty? %>
               <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
-            <%# end %>
-        </div>
-        <div class="medicationstatus-card">
-          <span class="text-small">Sat</span>
-            <%# if medication.saturday.is_given == true %>
-              <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
-            <%# else %>
+            <% elsif day_administrations.all? { |administration| administration.is_given? }%>
+              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
+            <% else  %>
               <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
-            <%# end %>
-        </div>
-        <div class="medicationstatus-card">
-          <span class="text-small">Sun</span>
-            <%# if medication.sunday.is_given == true %>
-              <%#= image_tag "yellowtick", height:"40px", width:"40px" %>
-            <%# else %>
-              <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
-            <%# end %>
-        </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
       <%= link_to 'Add medication', new_pet_medication_path(@pet), class: "yellow-btn"%>
     </div>
