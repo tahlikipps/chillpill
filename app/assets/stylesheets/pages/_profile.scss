@@ -193,6 +193,7 @@
   font-weight: 400;
   font-size: 12px;
   color: $yellow;
+  z-index: 1;
 }
 
 .petdetails-container {
@@ -294,6 +295,16 @@ a.yellow-btn {
   border-radius: 15px;
   display: flex;
   justify-content: center;
+}
+
+.form-link {
+
+  a {
+    font-weight: 400;
+    font-size: 12px;
+    color: $yellow;
+    text-decoration: none;
+  }
 }
 
 .medicationadministration-container {

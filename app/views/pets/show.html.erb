@@ -10,9 +10,9 @@
 
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
-      <p><%= link_to edit_pet_path(@pet) do %>
-        Edit Pet Details</p>
-      <% end %>
+        <%= link_to edit_pet_path(@pet) do %>
+          Edit pet details
+        <% end %>
   </div>
 
 <div class="pet-profile">
@@ -42,7 +42,7 @@
          <h4><%= @pet.owner.first_name %></h4>
         <%# end %>
       <p>Human</p>
-      <p><%= link_to "+ Add a carer", new_pet_pet_carer_path(@pet) %>
+      <p><%= link_to "Manage carers", pet_pet_carers_path(@pet) %>
       <% end %></p>
 
       <%# @pet.pet_carers.each do |carer| %>
