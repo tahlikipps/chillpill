@@ -1,5 +1,9 @@
 <div class="full-pages full-vh">
+
   <div class="container">
+    <div class="goback-button">
+      <%= link_to "← Go back", pet_pet_carers_path(@pet) %>
+    </div>
   <h2><strong> Add a new carer <br> or vet </strong></h2>
 
     <%= simple_form_for [@pet, @pet_carer] do |f| %>

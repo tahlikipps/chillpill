@@ -29,9 +29,9 @@ class PetCarersController < ApplicationController
   end
 
   def destroy
-    @pet_carer = PetCarer.find(params[:pet_carer_id])
+    @pet_carer = PetCarer.find(params[:id])
     @pet_carer.destroy
-    redirect_to pet_pet_carers_path(@pet), status: :see_other
+    redirect_to pet_pet_carers_path(@pet_carer.pet), status: :see_other
     authorize @pet_carer
   end
 
