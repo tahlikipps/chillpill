@@ -36,6 +36,8 @@ class MedicationsController < ApplicationController
 
   def update
     if @medication.update(medication_params)
+      @administrations = MedicationAdministration.where("medication_id = ? AND is_given = false AND date BETWEEN ? AND ? OR date > ?", @medication.id, DateTime.now.beginning_of_day, DateTime.now.end_of_day, DateTime.now ).destroy_all
+      MedicationAdministrationService.new(@medication).call
       redirect_to pet_medications_path(@medication.pet)
     else
       render :edit, status: :unprocessable_entity

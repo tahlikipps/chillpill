@@ -4,13 +4,20 @@
 
 import { application } from "./application"
 
+import AnimationController from "./animation_controller"
+application.register("animation", AnimationController)
+
+import ConfirmationController from "./confirmation_controller"
+application.register("confirmation", ConfirmationController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import NavbarController from "./navbar_controller"
-application.register("navbar", NavbarController)
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
