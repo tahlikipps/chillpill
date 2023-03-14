@@ -30,6 +30,6 @@ class PetCarerPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    true
   end
 end

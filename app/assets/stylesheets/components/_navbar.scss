@@ -60,6 +60,10 @@
 
 .card-product-container {
   margin-left: 10px;
+
+  .yellow-btn {
+    margin-top: 30px;
+  }
 }
 
 .card-product {
@@ -146,4 +150,8 @@
   width: 60px;
   margin-left: 20px;
   border-radius: 15px;
+}
+
+.mail{
+  color: orange;
 }

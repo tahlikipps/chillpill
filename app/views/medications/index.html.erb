@@ -67,7 +67,7 @@
   <% else %>
     <div class="given_meds">
       <% @given_administrations.each do |administration| %>
-      <h3><%= administration.date %></h3>
+      <h3><%= administration.date.strftime('%a %d') %></h3>
         <div class="given_med_card">
             <% if administration.medication.medication_type == "Capsule" %>
               <i class="fa-solid fa-capsules"></i>

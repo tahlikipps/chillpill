@@ -1,9 +1,15 @@
+/* chat head styling */
+
 .chat-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid lightgray;
+  // border-bottom: 1px solid lightgray;
   padding: 15px 0;
+  background-color: $yellow;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
   .chat-head-l {
     display: flex;
@@ -43,30 +49,34 @@
   }
 }
 
+/* message body styling */
+
 .msg-container {
+  height: 93vh;
+  overflow-y: scroll;
   padding: 20px;
 
-  .msg-content {
+  .msg-row {
     margin-bottom: 10px;
   }
 
-  .msg-txt {
+  .receiver-style, .sender-style {
+    max-width: 220px;
+    border-radius: 4px;
     padding: 10px 20px;
-    width: fit-content;
     height: fit-content;
-    border-radius: 13px 13px 13px 0;
-
-    p {
-      margin: 0;
-    }
+    word-wrap: break-word;
   }
 
-  .msg-gray {background-color: #F1F1F1;}
-  .msg-blue {
+  .receiver-style {
+    background-color: #F1F1F1;
+    border-radius: 13px 13px 13px 0;
+  }
+
+  .sender-style {
     background-color: $blue;
     color: white;
     border-radius: 13px 13px 0 13px;
-    margin-left: auto;
   }
 
   .sent-time {
@@ -76,4 +86,68 @@
   }
 
   .text-right { text-align: right; }
+
+  .msg-vet {
+    display: flex;
+  }
+
+  .chat-vet-avt {
+    height: 38px;
+    width: 38px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-left: 5px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+}
+
+
+/* message form styling */
+
+.msg-form {
+  padding: 20px 20px;
+  background-color: $yellow;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+
+  form.simple_form {
+    width: 100%;
+  }
+
+  .msg-form-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .message_content {
+      margin: 0 !important;
+      width: 100%;
+    }
+  }
+
+  form.simple_form { margin: 0; }
+
+  textarea {
+    border-radius: 10px;
+    margin: 0;
+    background-color: white;
+    padding: 13px 20px;
+    height: 50px;
+  }
+
+  input[type=submit] {
+    margin: 0 0 0 10px;
+    width: 50px;
+    height: 50px;
+    background-color: $blue;
+  }
 }
