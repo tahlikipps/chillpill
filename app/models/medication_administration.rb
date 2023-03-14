@@ -6,10 +6,10 @@ class MedicationAdministration < ApplicationRecord
 
   after_create :scheduler_reminder_email
 
-
+  private
 
   def scheduler_reminder_email
-    UserMailer.with(user: self.medication.pet.owner)
+    UserMailer.with(user: self.medication.pet.owner, pet:self.medication.pet)
               .medication_reminder
               .deliver_later!(wait_until: date - 15.minutes)
   end

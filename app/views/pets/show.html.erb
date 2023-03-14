@@ -68,20 +68,19 @@
       </div>
 
       <div class="medicationstatus-container">
-            <% (Date.today.beginning_of_week(:sunday)...Date.today.end_of_week).each do |date| %>
-              <div class="medicationstatus-card">
-              <span class="text-small"><%= date.strftime('%a %d') %></span>
-              <% day_administrations = MedicationAdministration.joins(:medication).where(date: date.all_day, medication: { pet_id: @pet.id }) %>
-              <% if day_administrations.empty? %>
-                <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
-              <% elsif day_administrations.all? { |administration| administration.is_given? }%>
-                <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
-              <% else  %>
-                <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
-              <% end %>
-              </div>
+        <% (Date.today.beginning_of_week(:sunday)...Date.today.end_of_week).each do |date| %>
+          <div class="medicationstatus-card">
+            <span class="text-small"><%= date.strftime('%a %d') %></span>
+            <% day_administrations = MedicationAdministration.joins(:medication).where(date: date.all_day, medication: { pet_id: @pet.id }) %>
+            <% if day_administrations.empty? %>
+              <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
+            <% elsif day_administrations.all? { |administration| administration.is_given? }%>
+              <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
+            <% else  %>
+              <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
             <% end %>
-
+          </div>
+        <% end %>
       </div>
       <%= link_to 'Add medication', new_pet_medication_path(@pet), class: "yellow-btn"%>
     </div>
