@@ -32,6 +32,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= favicon_link_tag "b.png",rel: "icon", type: "image/png" %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
+
+
   </head>
 
   <body data-controller = "navbar">
@@ -45,6 +51,8 @@
 
     <% unless params[:controller] == "chats" && params[:action] == "show" %>
     <%= render "shared/footer" %>
+
     <% end %>
+
   </body>
 </html>
