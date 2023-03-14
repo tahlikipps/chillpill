@@ -75,8 +75,63 @@ user2 = User.new(
 )
 file = URI.open("https://res.cloudinary.com/dktx1oojk/image/upload/f_auto,dpr_auto,q_60,fl_progressive/w_1.0,h_1.0,c_fill,g_auto/w_1080,h_720,c_scale/www2022/powerinit/35532/PRINT_AniCura_Care_and_meeting_376.jpeg")
 user2.photo.attach(io: file, filename: "boy.jpg", content_type: "image/jpeg")
-
 user2.save!
+
+user3 = User.new(
+  first_name: "Lola",
+  last_name: "Ali",
+  phone_number: "+344561347",
+  address: "Carrer de Valencia, 120",
+  email: "lola@gmail.com",
+  password: "123456",
+  is_vet: true
+)
+file = URI.open("https://images.unsplash.com/photo-1532714845903-d7b2a053e92b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80")
+user3.photo.attach(io: file, filename: "girl.jpg", content_type: "image/jpeg")
+
+user3.save!
+
+user4 = User.new(
+  first_name: "Fatima",
+  last_name: "Pashazade",
+  phone_number: "+344561327",
+  address: "Carrer de Vilamari",
+  email: "fatima@gmail.com",
+  password: "123456",
+  is_vet: true
+)
+file = URI.open("https://images.unsplash.com/photo-1597214840472-aa1eaf0e1fac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80")
+user4.photo.attach(io: file, filename: "girlly.jpg", content_type: "image/jpeg")
+
+user4.save!
+
+user5 = User.new(
+  first_name: "Tahli",
+  last_name: "Kipps",
+  phone_number: "+344461327",
+  address: "Madrid",
+  email: "tahli@gmail.com",
+  password: "123456",
+  is_vet: true
+)
+file = URI.open("https://images.unsplash.com/photo-1635416651032-191ab4bf66a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2942&q=80")
+user5.photo.attach(io: file, filename: "girlly.jpg", content_type: "image/jpeg")
+
+user5.save!
+
+user6 = User.new(
+  first_name: "Marta",
+  last_name: "Garcia",
+  phone_number: "+344361327",
+  address: "Carrer de Bruc",
+  email: "Marta@gmail.com",
+  password: "123456",
+  is_vet: true
+)
+file = URI.open("https://images.unsplash.com/photo-1609138271629-571665f418a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+user6.photo.attach(io: file, filename: "new.jpg", content_type: "image/jpeg")
+
+user6.save!
 
 # pet = Pet.new(
 #   name: "Catty",
