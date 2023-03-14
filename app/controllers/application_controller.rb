@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    profile_path(current_user) # your path
+    profile_path # your path
   end
 
   def configure_permitted_parameters
