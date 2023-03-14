@@ -4,8 +4,16 @@
 
 import { application } from "./application"
 
+
 import ChatSubscriptionController from "./chat_subscription_controller"
 application.register("chat-subscription", ChatSubscriptionController)
+
+import AnimationController from "./animation_controller"
+application.register("animation", AnimationController)
+
+import ConfirmationController from "./confirmation_controller"
+application.register("confirmation", ConfirmationController)
+
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)

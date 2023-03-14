@@ -1,0 +1,39 @@
+<div class="container full-vh">
+<br>
+  <div class="goback-button">
+    <%= link_to "← Go back", pet_path(@pet) %>
+  </div>
+
+
+  <h2><strong> Manage <%= @pet.name %>'s <br>carers / vet </strong></h2>
+  <div class="card-product-container">
+    <% @pet_carer.each do |carer| %>
+      <div class="card-product">
+        <% unless carer.user.photo.key.nil? %>
+          <%= cl_image_tag carer.user.photo.key, class: "burger-img" %>
+        <% else %>
+          <%= image_tag "avatar.jpg", class:"burger-img", style: "object-fit: cover;" %>
+        <% end %>
+        <div class="card-product-infos">
+          <h2><%= carer.user.first_name  %></h2>
+          <p><%= carer.user.email %></p>
+          <% if carer.user.is_vet == true %>
+            <%= image_tag "vet-tag.png", height: '20px', width:'45px'  %>
+          <% end %>
+          <% if carer.is_owner == true %>
+            <p><strong><i class="fa-solid fa-shield-dog"></i>Owner</strong></p>
+          <% end %>
+        </div>
+          <% unless carer.is_owner == true %>
+            <div class="curr_meds_icon">
+              <%= link_to pet_carer_path(carer), data: {turbo_method: :delete, turbo_confirm: "Are you sure, human?"} do %>
+              <i class="fa-regular fa-trash-can"></i>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+    <% end %>
+  <%= link_to 'Add carer or vet', new_pet_pet_carer_path(@pet), class: "yellow-btn"%>
+  </div>
+</div>
