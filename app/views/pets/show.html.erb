@@ -10,6 +10,9 @@
 
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
+      <p><%= link_to edit_pet_path(@pet) do %>
+        Edit Pet Details</p>
+      <% end %>
   </div>
 
 <div class="pet-profile">
@@ -35,12 +38,12 @@
       </div>
       <div class="petdetails-card">
       <% unless @pet.owner.nil? %>
-        <%= link_to profile_path(current_user) do %>
+        <%#= link_to profile_path(current_user) do %>
          <h4><%= @pet.owner.first_name %></h4>
-        <% end %>
-      <p><%= link_to "Add another carer", new_pet_pet_carer_path(@pet) %>
+        <%# end %>
       <p>Human</p>
-      <% end %>
+      <p><%= link_to "+ Add a carer", new_pet_pet_carer_path(@pet) %>
+      <% end %></p>
 
       <%# @pet.pet_carers.each do |carer| %>
         <%#= carer.user.first_name %>
@@ -53,11 +56,10 @@
 
 
     <div class="pet-medication-card">
-    <%#= @administrations.count %>
 
       <div class="pet-med-card-txt">
         <h2><%= @pet.name %>'s medication</h2>
-        <%= link_to pet_medications_path(@pet), class: "seemedication-tag" do %>
+        <%= link_to pet_medications_path(@pet) do %>
           See all
         <% end %>
       </div>
@@ -129,7 +131,21 @@
         <h3><%= dosage.date.strftime("%d - %b") %></h3>
         <div class="medicationdosage-card">
           <div class="medicationdosage-img">
-            <%= image_tag "medicine.png", height:"50px", width:"50px" %>
+            <% if dosage.medication.medication_type == "Capsule" %>
+              <i class="fa-solid fa-capsules"></i>
+            <% elsif dosage.medication.medication_type == "Tablet" %>
+              <i class="fa-solid fa-tablets"></i>
+            <% elsif dosage.medication.medication_type == "Liquid" %>
+              <i class="fa-solid fa-droplet"></i>
+            <% elsif dosage.medication.medication_type == "Spray" %>
+              <i class="fa-solid fa-spray-can"></i>
+            <% elsif dosage.medication.medication_type == "Cream" %>
+              <i class="fa-solid fa-poo"></i>
+            <% elsif dosage.medication.medication_type == "Injection" %>
+              <i class="fa-solid fa-syringe"></i>
+            <% else %>
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+            <% end %>
           </div>
           <div class="medicationdosage-text">
             <h3><%= dosage.medication.name %></h3>
