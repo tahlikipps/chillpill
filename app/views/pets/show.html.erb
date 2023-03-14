@@ -13,55 +13,12 @@
 </div>
 
 
-<div class="petname-container">
-  <h2><%= @pet.name %></h2>
-</div>
-
-<div class="pet-profile">
-  <div class="petdetails-container">
-    <div class="petdetails-card">
-      <h4><%= pluralize @pet_age, "year" %></h4>
-      <p>Age</p>
-    </div>
-    <div class="petdetails-card">
-      <h4><%= @pet.species.capitalize %></h4>
-      <p>Species</p>
-    </div>
-    <div class="petdetails-card">
-    <% unless @pet.vet.nil? %>
-      <%= @pet.vet.first_name %>
-      <%#= link_to profile_path(@vet) do %>
-        <%#= @pet.vet.first_name %>
-      <%# end %>
-    <% else %>
-      <h4><%= link_to "Add vet", new_pet_pet_carer_path(@pet) %></h4>
-    <% end %>
-      <p>Vet</p>
-    </div>
-    <div class="petdetails-card">
-    <% unless @pet.owner.nil? %>
-      <%= link_to profile_path(current_user) do %>
-        <h4><%= @pet.owner.first_name %></h4>
-      <% end %>
-    <p><%= link_to "Add another carer", new_pet_pet_carer_path(@pet) %>
-    <p>Human</p>
-    <% end %>
-
-
-<div class="petimage-container">
-      <% unless @pet.photo.key.nil? %>
-        <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
-      <% else %>
-        <%= image_tag "pet-avatar-large.png", class:"avatar-large" %>
-      <% end %>
-  </div>
-
 
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
-      <p><%= link_to edit_pet_path(@pet) do %>
-        Edit Pet Details</p>
-      <% end %>
+        <%= link_to edit_pet_path(@pet) do %>
+          Edit pet details
+        <% end %>
   </div>
 
 <div class="pet-profile">
@@ -102,26 +59,7 @@
       </div>
     </div>
 
-    <%# @pet.pet_carers.each do |carer| %>
-      <%#= carer.user.first_name %>
-    <%# end %>
-      <%#= link_to "Add carer", new_pet_pet_carer_path(@pet) %>
-
-    </div>
-  </div>
-
   <div class="pet-medication-card">
-  <%#= @administrations.count %>
-
-    <div class="pet-med-card-txt">
-      <h2><%= @pet.name %>'s medication</h2>
-      <%= link_to pet_medications_path(@pet), class: "seemedication-tag" do %>
-        See all
-      <% end %>
-    </div>
-
-<div class="pet-medication-card">
-
       <div class="pet-med-card-txt">
         <h2><%= @pet.name %>'s medication</h2>
         <%= link_to pet_medications_path(@pet) do %>

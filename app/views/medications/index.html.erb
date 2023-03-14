@@ -14,7 +14,7 @@
     </div>
   <% else %>
     <div class="current_medications">
-      <% @medications.each do |medication| %>
+      <% @medications.each do | medication | %>
         <div class="current_medications_cards">
           <div class="curr_meds_top">
             <% if medication.medication_type == "Capsule" %>
@@ -69,17 +69,17 @@
       <% @given_administrations.each do |administration| %>
       <h3><%= administration.date %></h3>
         <div class="given_med_card">
-            <% if medication.medication_type == "Capsule" %>
+            <% if administration.medication.medication_type == "Capsule" %>
               <i class="fa-solid fa-capsules"></i>
-            <% elsif medication.medication_type == "Tablet" %>
+            <% elsif administration.medication.medication_type == "Tablet" %>
               <i class="fa-solid fa-tablets"></i>
-            <% elsif medication.medication_type == "Liquid" %>
+            <% elsif administration.medication.medication_type == "Liquid" %>
               <i class="fa-solid fa-droplet"></i>
-            <% elsif medication.medication_type == "Spray" %>
+            <% elsif administration.medication.medication_type == "Spray" %>
               <i class="fa-solid fa-spray-can"></i>
-            <% elsif medication.medication_type == "Cream" %>
+            <% elsif administration.medication.medication_type == "Cream" %>
               <i class="fa-solid fa-poo"></i>
-            <% elsif medication.medication_type == "Injection" %>
+            <% elsif administration.medication.medication_type == "Injection" %>
               <i class="fa-solid fa-syringe"></i>
             <% else %>
               <i class="fa-solid fa-prescription-bottle-medical"></i>
