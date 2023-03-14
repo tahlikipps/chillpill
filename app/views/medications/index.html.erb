@@ -2,6 +2,7 @@
 
   <div class="goback-button">
     <%= link_to "← Go back", pet_path(@pet) %>
+    <link rel="stylesheet" href="style.css">
   </div>
 
   <h1>Current meds</h1>
@@ -43,15 +44,18 @@
             </div>
 
             <div class="curr_meds_icon">
-              <%= link_to medication_path(medication), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <%= link_to medication_path(medication), data: {turbo_method: :delete, turbo_confirm: "Are you sure, human?"} do %>
                 <i class="fa-regular fa-trash-can"></i>
               <% end %>
             </div>
+
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
+
+
 
   <h1>Medication history</h1>
 
