@@ -51,7 +51,7 @@
 
            <hr>
           <li class="nav-item active">
-            <li><i class="fa-solid fa-house"></i><%= link_to "Home" %></li>
+            <li><i class="fa-solid fa-house"></i><%= link_to "Home", root_path %></li>
           </li>
           <hr>
 
@@ -60,7 +60,7 @@
           </li>
           <hr>
           <li class="nav-item active">
-            <li><i class="fa-sharp fa-solid fa-location-dot"></i><%= link_to "Nearby vets" %></li>
+            <li><i class="fa-sharp fa-solid fa-location-dot"></i><%= link_to "Nearby vets",  root_path(anchor:'home-find-vets'), class:"home-find-pets" %></li>
           </li>
           <hr>
 
