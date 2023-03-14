@@ -6,7 +6,7 @@ class MedicationAdministration < ApplicationRecord
 
   after_create :scheduler_reminder_email
 
-
+  private
 
   def scheduler_reminder_email
     UserMailer.with(user: self.medication.pet.owner)
