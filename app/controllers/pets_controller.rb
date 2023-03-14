@@ -6,8 +6,7 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @pet_age = Date.today.year - @pet.birth_date.year
     authorize @pet
-    MedicationAdministrationService.new(@pet.medications).call
-    @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
+    @administrations = MedicationAdministration.joins(:medication).where(date: DateTime.now.all_day, medication: { pet_id: @pet.id })
     @given_administrations = policy_scope(MedicationAdministration).where(is_given: true)
   end
 

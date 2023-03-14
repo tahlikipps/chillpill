@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  devise_for :users, controllers: { registrations: :registrations }
+
   root to: "pages#home"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
