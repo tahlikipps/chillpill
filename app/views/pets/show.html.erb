@@ -1,6 +1,7 @@
 <%# <div data-controller="animation" id="success-animation" class="d-none"> %>
-<div data-controller="animation" id="success-animation" class="d-none">
-   <%= image_tag 'happy-dog.gif' %>
+<div data-controller="animation" id="success-animation" class="d-none" >
+  <h2>Hey, thank you human! <br> I feel better now. <i class="fa-solid fa-paw"></i></h2>
+  <%= image_tag 'pet-love.gif' %>
 </div>
 <div class="petimage-container">
   <% unless @pet.photo.key.nil? %>
@@ -137,7 +138,7 @@
         <div class="is_given_status-container">
         <% unless dosage.is_given == true %>
           <div class="medicationdosage-btn">
-          <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Thank you, human!'} %>
+          <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Hey are you sure, human?'} %>
           </div>
         <% else %>
           <div class="donedose-btn">
