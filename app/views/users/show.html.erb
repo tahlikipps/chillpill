@@ -1,6 +1,6 @@
 <div class="profile-img-header-container">
     <% if current_user.is_vet == true %>
-      <%= image_tag "vet-tag", class:"vet-tag" %>
+      <%= image_tag "vet-tag.png", class:"vet-tag" %>
     <% end %>
     <% unless current_user.photo.key.nil? %>
       <%= cl_image_tag current_user.photo.key, class: "avatar-large-human" %>

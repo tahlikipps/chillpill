@@ -3,7 +3,7 @@
       <% unless @pet.photo.key.nil? %>
         <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
       <% else %>
-        <%= image_tag "pet-avatar-large", class:"avatar-large" %>
+        <%= image_tag "pet-avatar-large.png", class:"avatar-large" %>
       <% end %>
   </div>
 
