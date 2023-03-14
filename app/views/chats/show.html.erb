@@ -1,0 +1,62 @@
+<!-- Chat head -->
+
+<div class="chat-head">
+  <div class="chat-head-l">
+    <i class="fa-solid fa-arrow-left"></i>
+
+    <div class="chat-head-avt">
+      <% unless current_user.photo.key.nil? %>
+        <%= cl_image_tag current_user.photo.key%>
+      <% else %>
+        <%= image_tag "avatar.jpg" %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3><%= @chat.user.first_name %> <%= @chat.user.last_name %></h3>
+
+  <div class="chat-head-icons">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-video"></i>
+  </div>
+</div>
+
+
+<!-- Messages container -->
+
+<div class="msg-container">
+  <% @chat.messages.each do |message| %>
+    <div id="message-<%= message.id %>" class="msg-content">
+
+    <% if message.user == current_user %>
+      <div class="msg-txt msg-blue">
+        <p><%= message.content %></p>
+      </div>
+      <div class="text-right">
+        <span class="sent-time"><%= message.created_at.strftime("%H:%M") %></span>
+      </div>
+    <% else %>
+      <div class="msg-txt msg-gray">
+        <p><%= message.content %></p>
+      </div>
+      <span class="sent-time time-gray"><%= message.created_at.strftime("%H:%M") %></span>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+<!-- Message input form -->
+
+<div class="msg-form">
+  <%= simple_form_for [@chat, @message],
+    html: {class: "d-flex"} do |f|
+  %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>
