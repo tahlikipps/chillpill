@@ -19,7 +19,9 @@ gem "sprockets-rails"
 gem "dotenv-rails", groups: [:development, :test]
 gem "geocoder"
 
+gem 'wicked_pdf'
 
+gem 'wkhtmltopdf-binary'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
