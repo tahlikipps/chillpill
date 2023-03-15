@@ -3,6 +3,7 @@ class PetCarer < ApplicationRecord
   belongs_to :user
 
   enum status: %i[pending confirmed rejected]
+
   after_create :create_chat
 
   private
