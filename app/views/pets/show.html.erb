@@ -20,8 +20,9 @@
         Edit pet details
       <% end %>
   </div>
-
-  <%= link_to "Open chat", chat_path(@chat) %>
+  <% unless @pet.vet.nil? %>
+    <%= link_to "Open chat", chat_path(@chat) %>
+  <% end %>
 
 <div class="pet-profile">
     <div class="petdetails-container">

@@ -27,21 +27,21 @@
 
   <div class="profile-contactcard-container">
     <div class="profile-contactcard">
-      <p><strong>Address</strong><p>
+      <p><strong><i class="fa-solid fa-location-dot"></i></strong><p>
       <p><%= current_user.address %></p>
     </div>
 
     <div class="profile-contactcard">
-      <p><strong>Phone number</strong><p>
+      <p><strong><i class="fa-solid fa-phone"></i></strong><p>
       <p><%= current_user.phone_number %></p>
     </div>
 
     <div class="profile-contactcard">
-      <p><strong>Email</strong><p>
+      <p><strong><i class="fa-solid fa-envelope"></i></strong><p>
       <p><%= current_user.email %></p>
     </div>
     <div class="profile-contactcard">
-      <p><strong>ChillPill Stats</strong><p>
+      <p><strong><i class="fa-solid fa-ranking-star"></i></strong><p>
     <p style="font-size: 15px;">Has given <strong><%= current_user.medication_administrations.count %></strong> doses so far.</p>
     </div>
   </div>
