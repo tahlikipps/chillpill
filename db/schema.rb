@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_114954) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_170223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,12 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_114954) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id", null: false
+    t.bigint "vet_id", null: false
+    t.index ["owner_id"], name: "index_chats_on_owner_id"
     t.index ["pet_id"], name: "index_chats_on_pet_id"
-    t.index ["user_id"], name: "index_chats_on_user_id"
+    t.index ["vet_id"], name: "index_chats_on_vet_id"
   end
 
   create_table "medication_administrations", force: :cascade do |t|
@@ -130,7 +132,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_114954) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chats", "pets"
-  add_foreign_key "chats", "users"
+  add_foreign_key "chats", "users", column: "owner_id"
+  add_foreign_key "chats", "users", column: "vet_id"
   add_foreign_key "medication_administrations", "medications"
   add_foreign_key "medication_administrations", "users"
   add_foreign_key "medications", "pets"

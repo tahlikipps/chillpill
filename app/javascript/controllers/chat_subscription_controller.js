@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
-  static values = { chatId: Number, currentUserId: Number }
+  static values = { chatId: Number, currentUserId: Number, imageLink: String }
   static targets = ["messages"]
 
   connect() {
@@ -37,19 +37,33 @@ export default class extends Controller {
 
   #buildMessageElement(currentUserIsSender, message) {
     return `
-      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
+      <div class="msg-row d-flex ${this.#justifyClass(currentUserIsSender)}">
+      <span class="sent-time-receiver ${this.#hideTimeReceiverStyle(currentUserIsSender)}">${new Date().getHours()}:${new Date().getMinutes()}</span>
+
+        <div class="chat-vet-avt">
+          <img src="${this.imageLinkValue}" />
+        </div>
         <div class="${this.#userStyleClass(currentUserIsSender)}">
           ${message}
         </div>
-      </div>
+        <span class="sent-time-sender ${this.#hideTimeSenderStyle(currentUserIsSender)}">${new Date().getHours()}:${new Date().getMinutes()}</span>
+        </div>
     `
   }
 
   #justifyClass(currentUserIsSender) {
-    return currentUserIsSender ? "justify-content-end" : "justify-content-start"
+    return currentUserIsSender ? "justify-content-end msg-row-sender" : "justify-content-start msg-row-receiver"
   }
 
   #userStyleClass(currentUserIsSender) {
     return currentUserIsSender ? "sender-style" : "receiver-style"
+  }
+
+  #hideTimeReceiverStyle(currentUserIsSender) {
+    return currentUserIsSender ? "" : "hide-time"
+  }
+
+  #hideTimeSenderStyle(currentUserIsSender) {
+    return currentUserIsSender ? "hide-time" : ""
   }
 }

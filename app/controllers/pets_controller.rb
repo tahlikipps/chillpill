@@ -9,6 +9,7 @@ class PetsController < ApplicationController
     @administrations = MedicationAdministration.where(date: DateTime.now.all_day, medication_id: @pet.medications.ids)
     @week_administrations = MedicationAdministration.where(date: Date.today.beginning_of_week(:sunday)...Date.today.end_of_week, medication_id: @pet.medications.ids)
     @given_administrations = policy_scope(MedicationAdministration).where(is_given: true)
+    @chat = Chat.find_by(pet: @pet)
   end
 
   def new
@@ -23,6 +24,8 @@ class PetsController < ApplicationController
     @pet_carer = PetCarer.create(pet: @pet, user: current_user, is_owner: true, status: 1)
 
     @owner = PetCarer.all.where(user_id: current_user.id, is_owner: true)
+
+    @chat = Chat.create(pet: @pet)
     redirect_to profile_path
   end
 
