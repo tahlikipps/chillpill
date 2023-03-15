@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
-    @user_pets = current_user.pets
-    @administrations = current_user.medication_administrations
+    if params[:id].present?
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+    @user_pets = @user.pets
+    @administrations = @user.medication_administrations
 
     authorize @user
 

@@ -1,15 +1,15 @@
 <div class="profile-img-header-container">
-    <% if current_user.is_vet == true %>
+    <% if @user.is_vet == true %>
       <%= image_tag "vet-tag.png", class:"vet-tag" %>
     <% end %>
-    <% unless current_user.photo.key.nil? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-large-human" %>
+    <% unless @user.photo.key.nil? %>
+      <%= cl_image_tag @user.photo.key, class: "avatar-large-human" %>
     <% else %>
       <%= image_tag "avatar.png", class:"avatar-large-human" %>
     <% end %>
 
   <div class="container">
-    <h2 style="margin-top: 20px;"><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <h2 style="margin-top: 20px;"><%= @user.first_name %> <%= @user.last_name %></h2>
   </div>
 </div>
 
@@ -21,33 +21,33 @@
         Edit profile
       <% end %>
     </div>
-    <p style="color: #C0C0C0; font-size: 15px;">ChillPiller since: <%= current_user.created_at.strftime("%B #{current_user.created_at.day.ordinalize}, %Y") %>.</p>
-    <p style="margin-bottom:0;"><%= current_user.bio %></p>
+    <p style="color: #C0C0C0; font-size: 15px;">ChillPiller since: <%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %>.</p>
+    <p style="margin-bottom:0;"><%= @user.bio %></p>
   </div>
 
   <div class="profile-contactcard-container">
     <div class="profile-contactcard">
       <p><strong><i class="fa-solid fa-location-dot"></i></strong><p>
-      <p><%= current_user.address %></p>
+      <p><%= @user.address %></p>
     </div>
 
     <div class="profile-contactcard">
       <p><strong><i class="fa-solid fa-phone"></i></strong><p>
-      <p><%= current_user.phone_number %></p>
+      <p><%= @user.phone_number %></p>
     </div>
 
     <div class="profile-contactcard">
       <p><strong><i class="fa-solid fa-envelope"></i></strong><p>
-      <p><%= current_user.email %></p>
+      <p><%= @user.email %></p>
     </div>
     <div class="profile-contactcard">
       <p><strong><i class="fa-solid fa-ranking-star"></i></strong><p>
-    <p style="font-size: 15px;">Has given <strong><%= current_user.medication_administrations.count %></strong> doses so far.</p>
+    <p style="font-size: 15px;">Has given <strong><% has_given = @user.medication_administrations.count %><%=  pluralize has_given, "dose" %></strong> so far.</p>
     </div>
   </div>
 
   <div class="profile-pets-container">
-    <h2><%= current_user.first_name %>'s Pets</h2>
+    <h2><%= @user.first_name %>'s Pets</h2>
       <div class="profile-petscard-container">
         <% unless @user_pets.nil? %>
           <% @user_pets.each do |pet| %>
@@ -75,9 +75,9 @@
 
 <%#= VET ONLY  %>
 
-  <% if current_user.is_vet == true %>
+  <% if @user.is_vet == true %>
     <div class="vet-map-container">
-      <h2><%= current_user.first_name %>'s Location</h2>
+      <h2><%= @user.first_name %>'s Location</h2>
       <div style="width: 100%; height: 600px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"

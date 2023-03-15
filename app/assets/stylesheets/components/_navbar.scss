@@ -98,7 +98,12 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+
+  a {
+    text-decoration: none;
+  }
 }
+
 
 .card-arrow a{
   margin-left: 100px;

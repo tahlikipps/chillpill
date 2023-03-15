@@ -3,7 +3,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    record == user
+    record == user || record.is_vet? || record.pets.any?{|e| e.in?(user.pets)}
   end
 
   # def edit?

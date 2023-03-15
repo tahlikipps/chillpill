@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/profile", to: 'users#show'
+  get "/profile/:id", to: 'users#show', as: "/userprofile/"
 
   resources :pets, only: %i[new show create edit update destroy] do
     resources :medications, only: %i[index new create]
