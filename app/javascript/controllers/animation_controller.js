@@ -13,8 +13,6 @@ export default class extends Controller {
         document.querySelector("body").style.overflow = "initial";
       }, 4000);
     }
-
-
   }
 
 }
