@@ -3,7 +3,7 @@ import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   static values = { chatId: Number, currentUserId: Number, imageLink: String }
-  static targets = ["messages"]
+  static targets = ["messages", "form", "textarea" ]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
@@ -21,6 +21,19 @@ export default class extends Controller {
 
   resetForm(event) {
     event.target.reset()
+  }
+
+  enterMessage(event) {
+
+    if (this.textareaTarget.value.trim().length == 0)
+    {
+       console.log("User needs to write something")
+    }
+    else
+    {
+      this.formTarget.click()
+    }
+
   }
 
   #insertMessageAndScrollDown(data) {
