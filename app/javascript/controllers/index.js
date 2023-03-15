@@ -4,16 +4,14 @@
 
 import { application } from "./application"
 
+import AnimationController from "./animation_controller"
+application.register("animation", AnimationController)
 
 import ChatSubscriptionController from "./chat_subscription_controller"
 application.register("chat-subscription", ChatSubscriptionController)
 
-import AnimationController from "./animation_controller"
-application.register("animation", AnimationController)
-
 import ConfirmationController from "./confirmation_controller"
 application.register("confirmation", ConfirmationController)
-
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
@@ -26,3 +24,6 @@ application.register("map", MapController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import SignedInController from "./signed_in_controller"
+application.register("signed-in", SignedInController)

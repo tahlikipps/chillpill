@@ -9,7 +9,6 @@
 require 'faker'
 require "open-uri"
 
-
 puts "Destroying past seeds..."
 
 Message.destroy_all
@@ -18,7 +17,6 @@ PetCarer.destroy_all
 Medication.destroy_all
 Pet.destroy_all
 User.destroy_all
-
 
 puts "Creating new seeds..."
 
