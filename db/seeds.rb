@@ -12,6 +12,8 @@ require "open-uri"
 
 puts "Destroying past seeds..."
 
+Message.destroy_all
+Chat.destroy_all
 PetCarer.destroy_all
 Medication.destroy_all
 Pet.destroy_all
