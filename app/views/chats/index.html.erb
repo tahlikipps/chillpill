@@ -32,7 +32,11 @@
             </div>
 
             <div class="chats-info">
-              <h3><%= chat.vet.first_name %> <%= chat.vet.last_name %></h3>
+               <% if current_user == chat.owner %>
+                <h3><%= chat.vet.first_name %> <%= chat.vet.last_name %></h3>
+              <% elsif current_user == chat.vet %>
+                <h3><%= chat.owner.first_name %> <%= chat.owner.last_name %></h3>
+              <% end %>
 
               <% unless chat.messages.empty? %>
                 <p><%= chat.messages.last.content %></p>
