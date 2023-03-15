@@ -18,9 +18,6 @@
         Edit pet details
       <% end %>
   </div>
-  <% unless @pet.vet.nil? %>
-    <%= link_to "Open chat", chat_path(@chat) %>
-  <% end %>
 
 <div class="pet-profile">
     <div class="petdetails-container">
@@ -33,29 +30,28 @@
         <p>Species</p>
       </div>
       <div class="petdetails-card">
-      <% unless @pet.vet.nil? %>
-        <%= @pet.vet.first_name %>
-        <%#= link_to profile_path(@vet) do %>
-          <%#= @pet.vet.first_name %>
-        <%# end %>
-      <% else %>
-        <h4><%= link_to "Add vet", new_pet_pet_carer_path(@pet) %></h4>
-      <% end %>
-        <p>Vet</p>
+        <% unless @pet.vet.nil? %>
+          <%= @pet.vet.first_name %>
+          <%#= link_to profile_path(@vet) do %>
+            <%#= @pet.vet.first_name %>
+          <%# end %>
+        <% else %>
+          <h4><%= link_to "+ Add vet", new_pet_pet_carer_path(@pet) %></h4>
+        <% end %>
+        <% unless @pet.vet.nil? %>
+          <p><%= link_to chat_path(@chat) do %><i class="fa-solid fa-comments" style="color: #F9C51B; margin:0;"></i>
+          Vet<% end %></p>
+          <% else %>
+            <p>Vet</p>
+        <% end %>
       </div>
       <div class="petdetails-card">
-      <% unless @pet.owner.nil? %>
-        <%#= link_to profile_path(current_user) do %>
-         <h4><%= @pet.owner.first_name %></h4>
-        <%# end %>
-      <p>Human</p>
-      <% end %></p>
-
-      <%# @pet.pet_carers.each do |carer| %>
-        <%#= carer.user.first_name %>
-      <%# end %>
-        <%#= link_to "Add carer", new_pet_pet_carer_path(@pet) %>
-
+        <% unless @pet.owner.nil? %>
+          <%#= link_to profile_path(current_user) do %>
+          <h4><%= @pet.owner.first_name %></h4>
+          <%# end %>
+        <p>Human</p>
+        <% end %></p>
       </div>
     </div>
 
