@@ -22,3 +22,30 @@
     padding-bottom: 35px;
   }
 }
+
+// .download{
+//   width: 30px;
+//   border-radius: 15px;
+//   background-color: #F9C51B;
+// }
+
+// .download a{
+//   text-decoration: none;
+//   color: black;
+//   text-align: center;
+//   padding-left: 6px;
+// }
+
+.grid-download{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.med{
+  width: 250px;
+}
