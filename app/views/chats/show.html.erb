@@ -2,8 +2,9 @@
 <div data-controller="chat-subscription"
      data-chat-subscription-chat-id-value="<%= @chat.id %>"
      data-chat-subscription-current-user-id-value="<%= current_user.id %>"
-     data-chat-subscription-image-link-value="<%= cl_image_path @chat.vet.photo.key %>"
+     data-chat-subscription-image-link-value="<%= cl_image_path @other_user.photo.key %>"
 >
+
   <div class="chat-head">
     <div class="chat-head-l">
       <%= link_to :back do %>
@@ -76,10 +77,12 @@
   <!-- Message input form -->
 
   <div class="msg-form">
-    <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" } } do |f| %>
+    <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm keydown.enter->chat-subscription#enterMessage" } } do |f| %>
       <div class="msg-form-input">
-        <%= f.input :content, label: false, placeholder: "Write your message" %>
-        <%= f.submit ">" do %><i class="fa-solid fa-paper-plane"></i><% end %>
+        <%= f.input :content, label: false, placeholder: "Write your message", input_html: {data: { chat_subscription_target: "textarea" }} %>
+        <%= f.button :button , data: { chat_subscription_target: "form" }  do %>
+          <i class='fa-solid fa-paper-plane'></i>
+        <% end %>
       </div>
     <% end %>
   </div>

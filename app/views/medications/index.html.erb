@@ -5,11 +5,17 @@
     <link rel="stylesheet" href="style.css">
   </div>
 
-  <h1>Current meds</h1>
+  <div class="grid-download">
+      <h1>Current meds</h1>
+
+      <%= link_to pet_medication_administrations_path(@pet, format: 'pdf') do  %>
+        <i class="fa-solid fa-download"></i>
+      <% end %>
+  </div>
 
   <% if @medications.count == 0 %>
     <div class="zero-meds-msg">
-      <h2>No current medications</h2>
+      <h2>No current medications<br><br></h2>
       <%= link_to "Add medication", new_pet_medication_path(@pet) %>
     </div>
   <% else %>

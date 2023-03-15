@@ -2,39 +2,55 @@
 
   <h1>Chat list</h1>
 
-  <div class="chats-cards">
-    <% @chats.each do |chat| %>
+  <% if @chats.count == 0 %>
+    <div class="no-chats-msg">
+      <h2>You don't have any chats! <br> Assign a vet to your pet now <br><br></h2>
+      <%= link_to "Add vet", profile_path %>
+    </div>
+  <% else %>
+    <div class="chats-cards">
+      <% @chats.each do |chat| %>
 
-     <h2><i class="fa-solid fa-paw"></i><%= chat.pet.name %>'s vet</h2>
+      <h2><i class="fa-solid fa-paw"></i><%= chat.pet.name %>'s vet</h2>
 
-      <%= link_to chat_path(chat) do %>
-        <div class="chats-card">
-          <div class="chats-avt">
-            <% if current_user == chat.owner %>
-              <% unless chat.vet.photo.key.nil? %>
-                <%= cl_image_tag chat.vet.photo.key%>
-              <% else %>
-                <%= image_tag "avatar.jpg" %>
+        <%= link_to chat_path(chat) do %>
+          <div class="chats-card">
+            <div class="chats-avt">
+              <% if current_user == chat.owner %>
+                <% unless chat.vet.photo.key.nil? %>
+                  <%= cl_image_tag chat.vet.photo.key%>
+                <% else %>
+                  <%= image_tag "avatar.jpg" %>
+                <% end %>
+              <% elsif current_user == chat.vet %>
+                <% unless chat.owner.photo.key.nil? %>
+                  <%= cl_image_tag chat.owner.photo.key%>
+                <% else %>
+                  <%= image_tag "avatar.jpg" %>
+                <% end %>
               <% end %>
-            <% elsif current_user == chat.vet %>
-              <% unless chat.owner.photo.key.nil? %>
-                <%= cl_image_tag chat.owner.photo.key%>
+            </div>
+
+            <div class="chats-info">
+              <h3><%= chat.vet.first_name %> <%= chat.vet.last_name %></h3>
+
+              <% unless chat.messages.empty? %>
+                <p><%= chat.messages.last.content %></p>
               <% else %>
-                <%= image_tag "avatar.jpg" %>
+                <p>No messages yet</p>
               <% end %>
-            <% end %>
-          </div>
+            </div>
 
-          <div class="chats-info">
-            <h3><%= chat.vet.first_name %> <%= chat.vet.last_name %></h3>
-            <p><%= chat.messages.last.content %></p>
+            <div class="chats-time">
+              <% unless chat.messages.empty? %>
+                <%= chat.messages.last.created_at.strftime("%H:%M") %>
+              <% else %>
+                 <%= chat.created_at.strftime("%H:%M") %>
+              <% end %>
+            </div>
           </div>
-
-          <div class="chats-time">
-            <%= chat.messages.last.created_at.strftime("%H:%M") %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
