@@ -9,7 +9,7 @@
 
   <% if @medications.count == 0 %>
     <div class="zero-meds-msg">
-      <h2>No current medications</h2>
+      <h2>No current medications<br><br></h2>
       <%= link_to "Add medication", new_pet_medication_path(@pet) %>
     </div>
   <% else %>
