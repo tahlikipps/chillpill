@@ -17,10 +17,13 @@ class MedicationAdministrationsController < ApplicationController
     @medication_administrations = policy_scope(MedicationAdministration)
     @medication_administrations = MedicationAdministration.joins(:medication)
                                                           .where(date: Date.today.., medications: { pet_id: params[:pet_id] })
+
+
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name"   # Excluding ".pdf" extension.
+        render pdf: "file_name", disposition: "attachment"
+        # render pdf: "file_name"   # Excluding ".pdf" extension.
         # Tempfile.create do |t|
         #   t.binmode
         #   t.write(pdf)

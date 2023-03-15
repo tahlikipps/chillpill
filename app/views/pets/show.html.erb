@@ -67,7 +67,6 @@
         <% end %>
       </div>
 
-      <%= link_to "Share medication", pet_medication_administrations_path(@pet) %>
 
       <div class="medicationstatus-container">
         <% (Date.today.beginning_of_week(:sunday)...Date.today.end_of_week).each do |date| %>
@@ -131,5 +130,9 @@
       <% end %>
       <% end %>
     </div>
+
+  <div class = "download">
+  <%= link_to "Download ", pet_medication_administrations_path(@pet, format: 'pdf') %>
+  </div>
 
 </div>
