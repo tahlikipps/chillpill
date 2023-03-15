@@ -3,7 +3,7 @@ class MedicationsController < ApplicationController
 
   def index
     @pet = Pet.find(params[:pet_id])
-    @medications = policy_scope(Medication).where(pet: @pet)
+    @medications = policy_scope(Medication).where(pet: @pet, status: "active")
     @administrations = MedicationAdministration.where(date: Date.today, medication_id: @pet.medications.ids)
     @given_administrations = policy_scope(MedicationAdministration)
                              .where(medication_id: @pet.medications.ids, is_given: true)
@@ -47,7 +47,7 @@ class MedicationsController < ApplicationController
   end
 
   def destroy
-    @medication.destroy
+    @medication.update(status: 'archived')
     redirect_to pet_medications_path(@medication.pet), status: :see_other
     authorize @medication
   end
