@@ -1,81 +1,29 @@
-<style>
 
-.grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  margin-top:20px;
-}
-.mail h2{
-  color: black;
-  padding-left: 20px;
-}
-.mail p{
-    color: black;
-}
-
-.link{
-  text-align: center;
-  border: 1px solid black;
-  border-radius: 15px;
-  width: 200px;
-
- }
-
- .link{
-    border: 1px solid orange !important;
-    margin-left: 80px;
-    touch-action: manipulation !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: none !important;
-    transition: -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s !important;
-}
-
- .link a{
-  text-decoration: none;
- }
-
- .link h3{
-  color: black;
-  font-size: 15px;
- }
-
- .pet-card-grid{
-  margin-left: 20px;
-  background-color: white;
-  width: 140px;
-  height: 140px;
-}
-
- .medicine{
-  font-size: 25px;
-  margin-left: 30px;
- }
-
-</style>
 
 
 <div class = "mail">
-    <%= image_tag ('chillpill_yellow.png'), height:"100px", width:"100%", style: "object-fit: cover;" %>
-<div class = "grid">
+    <%= image_tag "https://www.chillpill.site/assets/LOGO-3218c88efd8a39b694b72230c3363503baa233ad08fd1e2e17b3d41c826406a0.png", height:"80px", width:"100%", style: "object-fit: cover;" %>
+   <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px; margin-top:20px;">
 
-<div class = "pet-card-grid">
-  <p >Hi <%= @user.first_name %>,</p>
-  <p>Did you check how is your pet doing today? <i class="fa-solid fa-paw-simple"></i></p>
-</div>
+      <div >
+        <p >Hi <%= @user.first_name %>,</p>
+        <p>Did you check how is your pet doing today? <i class="fa-solid fa-paw-simple"></i></p>
+      </div>
 
-<div class = "grid-item">
-  <%= image_tag ('maildog.gif'), height:"140px", width:"100%", style: "object-fit: cover;" %>
-</div>
-</div>
-<hr>
-<h4 class= "medicine"><strong>It is time to give a medicine</strong></h4>
-  <div class = "link">
-  <%= link_to pet_url(@pet) do %>
-    <h3>DON'T MISS OUT!</h3>
-  <% end %>
+    <div class = "grid-item" style="float: right;">
+      <%= image_tag 'https://t3.ftcdn.net/jpg/00/99/35/46/360_F_99354602_Bbc7SaHBnQky9I08FqeVd4KFnJXvnc5o.jpg', height:"150px", width:"100%", style: "object-fit: cover;" %>
+    </div>
   </div>
+  <hr>
+  <h4 style = "font-size: 20px; margin-left: 30px;"><strong>It is time to give a medicine</strong></h4>
+
+    <div style="background-color:#F9C51B; text-align: center; border-radius: 15px;
+    width: 200px; border: 1px solid orange !important; margin-left: 70px;touch-action: manipulation !important;align-items: center !important;
+    justify-content: center !important;box-shadow: none !important;transition: -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s !important;">
+    <%= link_to pet_url(@pet) do %>
+      <h3 style = "color: black; font-size: 10px;"> DON'T MISS OUT!</h3>
+    <% end %>
+    </div>
 
   <%# <%= image_tag ('dog-img.png'), height:"400px", width:"100%", style: "object-fit: cover;" %>
 </div>
