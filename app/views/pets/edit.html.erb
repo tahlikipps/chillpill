@@ -5,11 +5,6 @@
   </div>
 
   <h2>Edit Pet</h2>
-    <div class="form-link">
-      <%= link_to pet_pet_carers_path(@pet) do %>
-        Manage Pet Carers / Vet
-      <% end %>
-    </div>
     <%= simple_form_for @pet do |f| %>
                 <%= f.input :name %>
                 <%= f.input :address %>
