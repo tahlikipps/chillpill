@@ -27,14 +27,19 @@
       </div>
     </div>
 
-    <% if current_user == @chat.owner %>
-      <h3><%= @chat.vet.first_name %> <%= @chat.vet.last_name %></h3>
-    <% elsif current_user == @chat.vet %>
-      <h3><%= @chat.owner.first_name %> <%= @chat.owner.last_name %></h3>
-    <% end %>
+    <div class="chat-head-avt">
+      <% unless current_user.photo.key.nil? %>
+        <%= cl_image_tag current_user.photo.key%>
+      <% else %>
+        <%= image_tag "avatar.png" %>
+      <% end %>
+
+    <h3><%= @chat.user.first_name %> <%= @chat.user.last_name %></h3>
+
     <div class="chat-head-icons">
       <i class="fa-solid fa-magnifying-glass"></i>
       <i class="fa-solid fa-video"></i>
+
     </div>
   </div>
 

@@ -1,17 +1,23 @@
 
+<%# <div data-controller="animation" id="success-animation" class="d-none"> %>
+<div data-controller="animation" id="success-animation" class="d-none" >
+  <h2>Hey, thank you human! <br> I feel better now <i class="fa-solid fa-paw"></i></h2>
+  <%= image_tag 'pet-love.gif' %>
+</div>
 <div class="petimage-container">
-      <% unless @pet.photo.key.nil? %>
-        <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
-      <% else %>
-        <%= image_tag "pet-avatar-large", class:"avatar-large" %>
-      <% end %>
-  </div>
+  <% unless @pet.photo.key.nil? %>
+    <%= cl_image_tag @pet.photo.key, class: "avatar-large" %>
+  <% else %>
+    <%= image_tag "pet-avatar-large", class:"avatar-large" %>
+  <% end %>
+</div>
+
 
 
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
-      <p><%= link_to edit_pet_path(@pet) do %>
-        Edit Pet Details</p>
+      <%= link_to edit_pet_path(@pet) do %>
+        Edit pet details
       <% end %>
   </div>
 
@@ -44,7 +50,6 @@
          <h4><%= @pet.owner.first_name %></h4>
         <%# end %>
       <p>Human</p>
-      <p><%= link_to "+ Add a carer", new_pet_pet_carer_path(@pet) %>
       <% end %></p>
 
       <%# @pet.pet_carers.each do |carer| %>
@@ -55,10 +60,7 @@
       </div>
     </div>
 
-
-
-    <div class="pet-medication-card">
-
+  <div class="pet-medication-card">
       <div class="pet-med-card-txt">
         <h2><%= @pet.name %>'s medication</h2>
         <%= link_to pet_medications_path(@pet) do %>
@@ -67,25 +69,29 @@
       </div>
 
       <div class="medicationstatus-container">
-            <% (Date.today.beginning_of_week(:sunday)...Date.today.end_of_week).each do |date| %>
-              <div class="medicationstatus-card">
-              <span class="text-small"><%= date.strftime('%a %d') %></span>
-              <%# if @week_administrations.all.is_given == true %>
-                <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
-              <%# else %>
-                <%#= image_tag "yellowtick.png", height:"40px", width:"40px" %>
-              <%# end %>
-              </div>
-            <% end %>
+        <% (Date.today.beginning_of_week(:sunday)...Date.today.end_of_week).each do |date| %>
 
+        <div class="medicationstatus-card">
+          <span class="text-small"><%= date.strftime('%a %d') %></span>
+          <% day_administrations = MedicationAdministration.joins(:medication).where(date: date.all_day, medication: { pet_id: @pet.id }) %>
+          <% if day_administrations.empty? %>
+            <%= image_tag "no-meds.png", height:"40px", width:"40px" %>
+          <% elsif day_administrations.all? { |administration| administration.is_given? }%>
+            <%= image_tag "yellowtick.png", height:"40px", width:"40px" %>
+          <% else  %>
+            <%= image_tag "greycircle.png", height:"40px", width:"40px" %>
+          <% end %>
+      </div>
+      <% end %>
       </div>
       <%= link_to 'Add medication', new_pet_medication_path(@pet), class: "yellow-btn"%>
     </div>
 
     <div class="medicationadministration-container">
+    <% unless @administrations.count < 1 %>
+    <h3><%= Date.today.strftime("%d - %b") %></h3>
     <% @administrations.each do |dosage| %>
       <div class="medicationadministration-card">
-        <h3><%= dosage.date.strftime("%d - %b") %></h3>
         <div class="medicationdosage-card">
           <div class="medicationdosage-img">
             <% if dosage.medication.medication_type == "Capsule" %>
@@ -111,7 +117,7 @@
           <div class="is_given_status-container">
           <% unless dosage.is_given == true %>
             <div class="medicationdosage-btn">
-            <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Thank you, human!'} %>
+            <%= button_to "Give",  medication_administration_path(dosage, is_given: true), method: :patch, data: {turbo_confirm: 'Are you sure, human?'} %>
             </div>
           <% else %>
             <div class="donedose-btn">
@@ -121,6 +127,7 @@
           </div>
         </div>
       </div>
+      <% end %>
       <% end %>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="hero">
   <div class="hero-info">
-    <h1>Help your pet have a better healthcare</h1>
+    <h1>Be the best carer for your best friend</h1>
 
     <div class="hero-action">
       <%= link_to 'Sign up now',  new_user_registration_path, class: "hero-signup-btn" %>
@@ -28,20 +28,21 @@
   <div class="service-card">
     <i class="fa-regular fa-hospital"></i>
     <p><strong>Talk with vets if needed</strong><p>
-    <p>If you have any question about your pet's medication, you can always ask your vet. Faucibus urna ut fames urna morbi lectus orci.</p>
+    <p>If you have any question about your pet's medication, you can always ask your vet.</p>
   </div>
 
   <div class="service-card">
     <i class="fa-solid fa-pills"></i>
     <p><strong>Search our Vets</strong><p>
-    <p>We have a network of Vets so you can find help for your best friend whereever you are.</p>
+    <p>We have a network of Vets so you can find help for your best friend where ever you are.</p>
   </div>
 
 </div>
 
-<div class="home-find-vets">
+
+<div class="home-find-vets" id="home-find-vets">
   <h2>Find the closest vet</h2>
-  <p>We have associated vets all around the world and we are so awesome.</p>
+  <p>ChillPill has associated vets all around the world. Find one near you.</p>
   <div
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
