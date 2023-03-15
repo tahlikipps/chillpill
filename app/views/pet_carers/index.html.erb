@@ -15,16 +15,23 @@
           <%= image_tag "avatar.png", class:"burger-img", style: "object-fit: cover;" %>
         <% end %>
         <div class="card-product-infos">
-          <h2><%= carer.user.first_name  %></h2>
-          <p><%= carer.user.email %></p>
-          <% if carer.user.is_vet == true %>
-            <%= image_tag "vet-tag.png", height: '20px', width:'45px'  %>
-          <% end %>
-          <% if carer.is_owner == true %>
-            <p><strong><i class="fa-solid fa-shield-dog"></i>Owner</strong></p>
+        <% unless carer.is_owner == true %>
+            <%= link_to userprofile_path(carer.user_id) do %>
+              <h2><%= carer.user.first_name  %></h2>
+              <p><%= carer.user.email %></p>
+              <% if carer.user.is_vet == true %>
+                <%= image_tag "vet-tag.png", height: '20px', width:'45px'  %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h2><%= carer.user.first_name  %></h2>
+            <p><%= carer.user.email %></p>
+              <% if carer.is_owner == true %>
+                <p><strong><i class="fa-solid fa-shield-dog"></i>Owner</strong></p>
+              <% end %>
           <% end %>
         </div>
-          <% unless carer.is_owner == true %>
+          <% unless carer.is_owner == true || !policy(carer).destroy? %>
             <div class="curr_meds_icon">
               <%= link_to pet_carer_path(carer), data: {turbo_method: :delete, turbo_confirm: "Are you sure, human?"} do %>
               <i class="fa-regular fa-trash-can"></i>

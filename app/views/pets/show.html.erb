@@ -31,12 +31,11 @@
       </div>
       <div class="petdetails-card">
         <% unless @pet.vet.nil? %>
-          <%= @pet.vet.first_name %>
-          <%#= link_to profile_path(@vet) do %>
-            <%#= @pet.vet.first_name %>
-          <%# end %>
+          <%= link_to userprofile_path(@pet.vet.id) do %>
+            <h4 class="vet-name"><%= @pet.vet.first_name %></h4>
+          <% end %>
         <% else %>
-          <h4><%= link_to "+ Add vet", new_pet_pet_carer_path(@pet) %></h4>
+          <h4 class="vet-name"><%= link_to "+ Add vet", new_pet_pet_carer_path(@pet) %></h4>
         <% end %>
         <% unless @pet.vet.nil? %>
           <p><%= link_to chat_path(@chat) do %><i class="fa-solid fa-comments" style="color: #F9C51B; margin:0;"></i>
