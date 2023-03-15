@@ -216,6 +216,7 @@
 
 .petdetails-card a {
   text-decoration: none;
+  color: #F9C51B;
   padding: 0;
   margin: 0;
 }
@@ -223,6 +224,11 @@
 .petdetails-card h4 {
   font-weight: 400;
   font-size: 18px;
+}
+
+.petdetails-card h4 > a {
+  color: black;
+  font-size: 14px;
 }
 
 .yellowsmalltext {
