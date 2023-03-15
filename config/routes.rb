@@ -21,7 +21,12 @@ Rails.application.routes.draw do
     resources :pet_carers, only: %i[index new create]
     resources :medication_administrations, only: [:index]
   end
+
   resources :medications, only: %i[edit update destroy]
   resources :medication_administrations, only: :update
   resources :pet_carers, only: %i[edit update destroy]
+
+  resources :chats, only: %i[index show] do
+    resources :messages, only: :create
+  end
 end

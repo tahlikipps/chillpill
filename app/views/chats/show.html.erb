@@ -1,0 +1,86 @@
+<!-- Chat head -->
+<div data-controller="chat-subscription"
+     data-chat-subscription-chat-id-value="<%= @chat.id %>"
+     data-chat-subscription-current-user-id-value="<%= current_user.id %>"
+     data-chat-subscription-image-link-value="<%= cl_image_path @chat.vet.photo.key %>"
+>
+  <div class="chat-head">
+    <div class="chat-head-l">
+      <%= link_to :back do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+
+      <div class="chat-head-avt">
+      <% if current_user == @chat.owner %>
+        <% unless @chat.vet.photo.key.nil? %>
+          <%= cl_image_tag @chat.vet.photo.key%>
+        <% else %>
+          <%= image_tag "avatar.jpg" %>
+        <% end %>
+      <% elsif current_user == @chat.vet %>
+        <% unless @chat.owner.photo.key.nil? %>
+          <%= cl_image_tag @chat.owner.photo.key%>
+        <% else %>
+          <%= image_tag "avatar.jpg" %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+
+      <% if current_user == @chat.owner %>
+        <h3><%= @chat.vet.first_name %> <%= @chat.vet.last_name %></h3>
+      <% else %>
+        <h3><%= @chat.owner.first_name %> <%= @chat.owner.last_name %></h3>
+      <% end %>
+
+      <div class="chat-head-icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-video"></i>
+      </div>
+    </div>
+
+
+  <!-- Messages container -->
+
+  <div class="msg-container" data-chat-subscription-target="messages">
+    <% @chat.messages.each do |message| %>
+      <div class="msg-row d-flex <%= message.sender?(current_user) ? 'justify-content-end msg-row-sender' : 'justify-content-start msg-row-receiver' %>">
+        <span class="sent-time-receiver <%= message.sender?(current_user) ? '' : 'hide-time' %>"><%= message.created_at.strftime("%H:%M") %></span>
+
+        <div class="chat-vet-avt">
+        <% if current_user == @chat.owner %>
+          <% unless @chat.vet.photo.key.nil? %>
+            <%= cl_image_tag @chat.vet.photo.key%>
+          <% else %>
+            <%= image_tag "avatar.jpg" %>
+          <% end %>
+        <% elsif current_user == @chat.vet %>
+          <% unless @chat.owner.photo.key.nil? %>
+            <%= cl_image_tag @chat.owner.photo.key%>
+          <% else %>
+            <%= image_tag "avatar.jpg" %>
+          <% end %>
+        <% end %>
+        </div>
+
+        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <%= render "message", message: message, chat: @chat %>
+        </div>
+
+        <span class="sent-time-sender <%= message.sender?(current_user) ? 'hide-time' : '' %>"><%= message.created_at.strftime("%H:%M") %></span>
+      </div>
+    <% end %>
+  </div>
+
+
+  <!-- Message input form -->
+
+  <div class="msg-form">
+    <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" } } do |f| %>
+      <div class="msg-form-input">
+        <%= f.input :content, label: false, placeholder: "Write your message" %>
+        <%= f.submit ">" do %><i class="fa-solid fa-paper-plane"></i><% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

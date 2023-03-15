@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
 gem 'letter_opener', group: :development
 
-gem "sidekiq"
+gem "sidekiq", "~> 6.5"
 gem "sidekiq-failures", "~> 1.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]

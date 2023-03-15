@@ -1,0 +1,40 @@
+<div class="chats-container">
+
+  <h1>Chat list</h1>
+
+  <div class="chats-cards">
+    <% @chats.each do |chat| %>
+
+     <h2><i class="fa-solid fa-paw"></i><%= chat.pet.name %>'s vet</h2>
+
+      <%= link_to chat_path(chat) do %>
+        <div class="chats-card">
+          <div class="chats-avt">
+            <% if current_user == chat.owner %>
+              <% unless chat.vet.photo.key.nil? %>
+                <%= cl_image_tag chat.vet.photo.key%>
+              <% else %>
+                <%= image_tag "avatar.jpg" %>
+              <% end %>
+            <% elsif current_user == chat.vet %>
+              <% unless chat.owner.photo.key.nil? %>
+                <%= cl_image_tag chat.owner.photo.key%>
+              <% else %>
+                <%= image_tag "avatar.jpg" %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="chats-info">
+            <h3><%= chat.vet.first_name %> <%= chat.vet.last_name %></h3>
+            <p><%= chat.messages.last.content %></p>
+          </div>
+
+          <div class="chats-time">
+            <%= chat.messages.last.created_at.strftime("%H:%M") %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
