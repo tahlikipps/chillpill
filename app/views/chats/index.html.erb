@@ -33,11 +33,20 @@
 
             <div class="chats-info">
               <h3><%= chat.vet.first_name %> <%= chat.vet.last_name %></h3>
-              <p><%= chat.messages.last.content %></p>
+
+              <% unless chat.messages.empty? %>
+                <p><%= chat.messages.last.content %></p>
+              <% else %>
+                <p>No messages yet</p>
+              <% end %>
             </div>
 
             <div class="chats-time">
-              <%= chat.messages.last.created_at.strftime("%H:%M") %>
+              <% unless chat.messages.empty? %>
+                <%= chat.messages.last.created_at.strftime("%H:%M") %>
+              <% else %>
+                 <%= chat.created_at.strftime("%H:%M") %>
+              <% end %>
             </div>
           </div>
         <% end %>
