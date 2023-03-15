@@ -10,7 +10,13 @@ class UsersController < ApplicationController
 
     authorize @user
 
-    @markers = [{ lat: @user.latitude, lng: @user.longitude }]
+    @markers = [
+      { lat: @user.latitude,
+        lng: @user.longitude,
+        info_window_html: render_to_string(partial: "pages/info_window", locals: { user: @user }),
+        marker_html: render_to_string(partial: "pages/marker")
+      }
+    ]
     # info_window_html: render_to_string(partial: "info_window", locals: { user: user })
   end
 end
