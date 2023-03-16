@@ -108,9 +108,43 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  width: 100%;
+  justify-content: space-between;
 
   a {
     text-decoration: none;
+    color: black;
+  }
+
+  p { margin: 0; margin-bottom: 3px; }
+}
+
+.carer-img {
+  object-fit: cover;
+  height: 70px;
+  width: 70px;
+  border-radius: 15px;
+}
+
+.curr_meds_icon {
+  margin-bottom: auto;
+  margin-top: 7px;
+
+  i {
+    font-size: 20px;
+  }
+}
+
+.card-product-less-margin {
+  margin-top: 15px !important;
+}
+
+.carer-card-head {
+  display: flex;
+  align-items: center;
+
+  a {
+    color: black;
   }
 }
 
