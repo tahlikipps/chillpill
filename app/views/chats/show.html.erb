@@ -3,43 +3,44 @@
      data-chat-subscription-chat-id-value="<%= @chat.id %>"
      data-chat-subscription-current-user-id-value="<%= current_user.id %>"
      data-chat-subscription-image-link-value="<%= cl_image_path @other_user.photo.key %>"
+     class="chat-wrapper"
 >
-
-  <div class="chat-head">
-    <div class="chat-head-l">
-      <%= link_to :back do %>
-        <i class="fa-solid fa-arrow-left"></i>
-      <% end %>
-
-      <div class="chat-head-avt">
-      <% if current_user == @chat.owner %>
-        <% unless @chat.vet.photo.key.nil? %>
-          <%= cl_image_tag @chat.vet.photo.key%>
-        <% else %>
-          <%= image_tag "avatar.jpg" %>
+  <div class="chat-head-wrapper">
+    <div class="chat-head">
+      <div class="chat-head-l">
+        <%= link_to :back do %>
+          <i class="fa-solid fa-arrow-left"></i>
         <% end %>
-      <% elsif current_user == @chat.vet %>
-        <% unless @chat.owner.photo.key.nil? %>
-          <%= cl_image_tag @chat.owner.photo.key%>
-        <% else %>
-          <%= image_tag "avatar.jpg" %>
+
+        <div class="chat-head-avt">
+        <% if current_user == @chat.owner %>
+          <% unless @chat.vet.photo.key.nil? %>
+            <%= cl_image_tag @chat.vet.photo.key%>
+          <% else %>
+            <%= image_tag "avatar.jpg" %>
+          <% end %>
+        <% elsif current_user == @chat.vet %>
+          <% unless @chat.owner.photo.key.nil? %>
+            <%= cl_image_tag @chat.owner.photo.key%>
+          <% else %>
+            <%= image_tag "avatar.jpg" %>
+          <% end %>
         <% end %>
-      <% end %>
+        </div>
       </div>
-    </div>
 
-      <% if current_user == @chat.owner %>
-        <h3><%= @chat.vet.first_name %> <%= @chat.vet.last_name %></h3>
-      <% else %>
-        <h3><%= @chat.owner.first_name %> <%= @chat.owner.last_name %></h3>
-      <% end %>
+        <% if current_user == @chat.owner %>
+          <h3><%= @chat.vet.first_name %> <%= @chat.vet.last_name %></h3>
+        <% else %>
+          <h3><%= @chat.owner.first_name %> <%= @chat.owner.last_name %></h3>
+        <% end %>
 
-      <div class="chat-head-icons">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <i class="fa-solid fa-video"></i>
+        <div class="chat-head-icons">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-video"></i>
+        </div>
       </div>
-    </div>
-
+  </div>
 
   <!-- Messages container -->
 

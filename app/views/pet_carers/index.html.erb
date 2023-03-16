@@ -8,11 +8,11 @@
   <h2><strong> Manage <%= @pet.name %>'s <br>carers / vet </strong></h2>
   <div class="card-product-container">
     <% @pet_carer.each do |carer| %>
-      <div class="card-product">
+      <div class="card-product card-product-less-margin">
         <% unless carer.user.photo.key.nil? %>
-          <%= cl_image_tag carer.user.photo.key, class: "burger-img" %>
+          <%= cl_image_tag carer.user.photo.key, class: "carer-img" %>
         <% else %>
-          <%= image_tag "avatar.png", class:"burger-img", style: "object-fit: cover;" %>
+          <%= image_tag "avatar.png", class:"carer-img", style: "object-fit: cover;" %>
         <% end %>
         <div class="card-product-infos">
         <% unless carer.is_owner == true %>
