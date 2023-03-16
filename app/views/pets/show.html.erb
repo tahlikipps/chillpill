@@ -14,9 +14,6 @@
 
   <div class="petname-container">
     <h2><%= @pet.name %></h2>
-      <%= link_to edit_pet_path(@pet) do %>
-        Edit pet details
-      <% end %>
   </div>
 
 <div class="pet-profile">
@@ -54,11 +51,16 @@
       </div>
     </div>
 
+  <div class="petname-links">
+    <%= link_to pet_pet_carers_path(@pet) do %>Manage carers<% end %>
+    <%= link_to edit_pet_path(@pet) do %>Edit pet details<% end %>
+  </div>
+
   <div class="pet-medication-card">
       <div class="pet-med-card-txt">
         <h2><%= @pet.name %>'s medication</h2>
         <%= link_to pet_medications_path(@pet) do %>
-          See all
+          <strong>See all</strong>
         <% end %>
       </div>
 
@@ -127,3 +129,6 @@
     </div>
 
 </div>
+
+
+<%# UserMailer.with(user: User.find_by_email("fatima.pashazadeh20@gmail.com"), pet: User.find_by_email("fatima.pashazadeh20@gmail.com").pets.first).medication_reminder.deliver_now %>

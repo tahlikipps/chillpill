@@ -116,6 +116,7 @@ user5 = User.new(
   is_vet: false,
   created_at: DateTime.now-7.days,
   updated_at: DateTime.now-7.days
+
 )
 file = URI.open("https://avatars.githubusercontent.com/u/122308794?v=4")
 user5.photo.attach(io: file, filename: "Tahli.png", content_type: "image/png")
@@ -149,6 +150,11 @@ medication = Medication.new(
 )
 medication.pet = pet5
 medication.save!
+
+
+file = URI.open("https://images.unsplash.com/photo-1570805119976-20f93dfa781d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=929&q=80")
+pet5.photo.attach(io: file, filename: "pet.jpg", content_type: "image/jpeg")
+pet5.save!
 
 PetCarer.create!(
   status: 1,
