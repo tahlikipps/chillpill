@@ -3,10 +3,12 @@
     <h1>Be the best carer for your best friend</h1>
 
     <div class="hero-action">
-      <%= link_to 'Sign up now',  new_user_registration_path, class: "hero-signup-btn" %>
+      <%# <%= link_to 'Sign up now',  new_user_registration_path, class: "hero-signup-btn" %>
+      <%= link_to "Sign up now", new_user_registration_path, class: "hero-signup-btn"  unless user_signed_in? %>
+      <%= link_to "My profile", profile_path, class: "hero-signup-btn" if user_signed_in? %>
       <br>
       <br>
-      <%= link_to 'or login to your account', new_user_session_path, class: "hero-login-btn" %>
+      <%= link_to 'or login to your account', new_user_session_path, class: "hero-login-btn" unless user_signed_in? %>
     </div>
   </div>
 </div>
