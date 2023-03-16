@@ -10,6 +10,13 @@
 
   <div class="container">
     <h2 style="margin-top: 20px;"><%= @user.first_name %> <%= @user.last_name %></h2>
+
+    <% if @user.is_vet == true %>
+      <p><%#= link_to chat_path(@chat) do %>
+      <i class="fa-solid fa-comments" style="color: #F9C51B; margin:0;"></i><a href="/chats" style="color: #F9C51B; text-decoration: none; font-size: 12px; margin-left: 7px; font-weight: bold;">Chat</a>
+      <%# end %>
+    <% end %>
+      </p>
   </div>
 </div>
 
@@ -77,8 +84,8 @@
 
   <% if @user.is_vet == true %>
     <div class="vet-map-container">
-      <h2><%= @user.first_name %>'s Location</h2>
-      <div style="width: 100%; height: 600px;"
+      <h2 style="margin-bottom: 30px;"><%= @user.first_name %>'s Location</h2>
+      <div style="width: 100%; height: 350px; border-radius: 20px; margin-bottom: 40px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
@@ -86,5 +93,3 @@
     </div>
   <% end %>
 </div>
-
-<%#= OWNER OR CARER  %>

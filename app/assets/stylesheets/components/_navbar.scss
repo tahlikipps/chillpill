@@ -45,9 +45,17 @@
  text-decoration: none;
 }
 
+.navbar-nav li {
+  margin-left: 10px;
+}
+
 .navbar-toggler{
   z-index: 101;
   border: 0;
+  padding: 0;
+  margin-top: auto;
+  margin-bottom: 8px;
+  color: black;
 }
 
 .navbar-toggler:focus{
@@ -85,7 +93,9 @@
 }
 
 .navbar-margin{
+  display: flex;
   margin-top: 30px;
+  width: 100%;
 }
 
 .card-product p {
@@ -109,8 +119,9 @@
   margin-left: 100px;
 }
 
-#adding a{
-  margin-left: 140px;
+#adding {
+  margin-left: auto;
+  text-decoration: underline;
 }
 
  .burger-last {
