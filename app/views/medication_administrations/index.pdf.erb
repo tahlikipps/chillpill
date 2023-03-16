@@ -27,12 +27,12 @@
     padding-left: 10px;
   }
 </style>
+
 <div>
   <div class = "image"><%= wicked_pdf_image_tag asset_url("LOGO.png") %></div>
   <div class = "first"><h1> <%= @pet.name %>'s Medication </h1></div>
 </div>
 
-<%# <div class = "med-grid"> %>
 <table>
   <% td_count = 0 %>
   <% (@medication_administrations.count / 3.to_f ).ceil.times do %>
@@ -55,4 +55,3 @@
     </tr>
   <% end %>
 </table>
-<%# </div> %>

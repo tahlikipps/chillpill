@@ -110,14 +110,33 @@ user5 = User.new(
   last_name: "Kipps",
   phone_number: "+344461327",
   address: "Madrid",
-  email: "tahli@gmail.com",
+  email: "fatima.pashazadeh20@gmail.com",
   password: "123456",
-  is_vet: true
+  is_vet: false
 )
 file = URI.open("https://images.unsplash.com/photo-1635416651032-191ab4bf66a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2942&q=80")
 user5.photo.attach(io: file, filename: "girlly.jpg", content_type: "image/jpeg")
 
 user5.save!
+
+pet5 = Pet.new(
+  name: "Blair",
+  species: 'Dog',
+  address: "Carrer de Bruc 120, Barcelona",
+  birth_date: Date.new(2021, 1, 1)
+)
+pet5.save!
+
+file = URI.open("https://images.unsplash.com/photo-1570805119976-20f93dfa781d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=929&q=80")
+pet5.photo.attach(io: file, filename: "pet.jpg", content_type: "image/jpeg")
+pet5.save!
+
+PetCarer.create!(
+  status: 1,
+  pet: pet5,
+  user: user5,
+  is_owner: true
+)
 
 user6 = User.new(
   first_name: "Marta",

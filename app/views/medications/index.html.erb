@@ -8,7 +8,7 @@
   <div class="grid-download">
       <h1>Current meds</h1>
 
-      <%= link_to pet_medication_administrations_path(@pet, format: 'pdf') do  %>
+      <%= link_to pet_medication_administrations_path(@pet, format: 'pdf', target: "_blank") do  %>
         <i class="fa-solid fa-download"></i>
       <% end %>
   </div>

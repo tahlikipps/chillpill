@@ -8,19 +8,18 @@ class Medication < ApplicationRecord
   validates :name, :medication_type, :dosage, :frequency, :start_date, :end_date, :time_period, presence: true
 
   def self.active
-    where(status:'active')
+    where(status: 'active')
   end
 
   def self.archived
     where(status: 'archived')
   end
 
-   def active?
+  def active?
     status == "active"
   end
 
   def archived?
     status == "archived"
   end
-
 end
