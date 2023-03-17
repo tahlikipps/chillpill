@@ -226,12 +226,16 @@ medicationadministration4.save!
 medicationadministration5 = MedicationAdministration.new(
   date: Date.new(2023, 3, 16),
   medication_id: medication.id,
+  is_given: true,
+  user_id: user6.id
 )
 medicationadministration5.save!
 
 medicationadministration6 = MedicationAdministration.new(
   date: Date.new(2023, 3, 16),
   medication_id: medication.id,
+  is_given: true,
+  user_id: user6.id
 )
 medicationadministration6.save!
 
