@@ -25,6 +25,7 @@
   .current_medications_cards {
     border: 1px solid #ECEDEF;
     border-radius: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
 
   .curr_meds_top {
@@ -77,6 +78,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 
   h2 {
     font-size: 20px;
@@ -116,6 +118,7 @@
     align-items: center;
     padding: 20px 30px;
     margin: 30px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
 
   i {
@@ -136,6 +139,7 @@
 
 .given_meds_empty {
   padding: 50px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 
   i {
     margin-top: 10px;
