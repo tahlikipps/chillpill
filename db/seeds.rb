@@ -152,10 +152,6 @@ medication.pet = pet5
 medication.save!
 
 
-file = URI.open("https://images.unsplash.com/photo-1570805119976-20f93dfa781d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=929&q=80")
-pet5.photo.attach(io: file, filename: "pet.jpg", content_type: "image/jpeg")
-pet5.save!
-
 PetCarer.create!(
   status: 1,
   pet: pet5,
@@ -246,10 +242,16 @@ medicationadministration7 = MedicationAdministration.new(
 medicationadministration7.save!
 
 medicationadministration8 = MedicationAdministration.new(
-  date: Date.new(2023, 3, 18),
+  date: Date.new(2023, 3, 17),
   medication_id: medication.id,
 )
 medicationadministration8.save!
+
+medicationadministration9 = MedicationAdministration.new(
+  date: Date.new(2023, 3, 18),
+  medication_id: medication.id,
+)
+medicationadministration9.save!
 
 user8 = User.new(
   first_name: "Marta",
