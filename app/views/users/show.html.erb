@@ -69,13 +69,14 @@
           <% end %>
         <% end %>
 
-
+        <% unless ((@user.is_vet == true) && (current_user != @user)) %>
           <%= link_to new_pet_path do %>
           <div class="profile-petscard-add">
             <%= image_tag "add-icon.png", height: '50px', width:'50px', style: "object-fit: cover; border-radius: 50%; text-decoration:none" %>
             <p><strong>Add a pet</strong><p>
           </div>
           <% end %>
+        <% end %>
 
       </div>
   </div>
