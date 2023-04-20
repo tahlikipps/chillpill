@@ -24,12 +24,13 @@ What was used:
 
 ## Screenshots & Demo
 
-[![Demo User and Pet Profile](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)
+[![Demo User and Pet Profile](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9!
+[IMG_7199](https://user-images.githubusercontent.com/122308794/233321744-d61b2ff3-7972-417b-8500-9b89f1d37d84.PNG)
+pK7)
+![IMG_7200](https://user-images.githubusercontent.com/122308794/233321788-8b71092b-caac-484c-a2ec-d045b1dfa645.PNG)
 
-![IMG_7202](https://user-images.githubusercontent.com/122308794/233319549-64f61357-5be6-4143-9290-e642f378fb25.PNG)
-![IMG_7201](https://user-images.githubusercontent.com/122308794/233319558-812eb399-67de-4ce5-bf47-1ae114ef4e1a.PNG)
-![IMG_7200](https://user-images.githubusercontent.com/122308794/233319563-5a6b0bb3-714a-4691-8039-22962b894f8a.PNG)
-![IMG_7199](https://user-images.githubusercontent.com/122308794/233319584-a4bf834d-a676-42d8-9c2e-4344c6343593.PNG)
+![IMG_7201](https://user-images.githubusercontent.com/122308794/233321816-c3f35ecf-de66-4659-9d3c-ec848d1dc86c.PNG)
+![IMG_7202](https://user-images.githubusercontent.com/122308794/233321840-8f35070f-43fd-44a0-93ab-1e8d1659f284.PNG)
 
 ## Credits
 The ChillPill team: Tahli (tahlikipps), Angie (anyeelog), Fatima (FatimaPashazade) and Fa (fa-it-girl)
