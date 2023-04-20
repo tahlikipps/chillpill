@@ -23,15 +23,21 @@ What was used:
 - Mapbox
 
 ## Screenshots & Demo
+Landing page
+![IMG_7199](https://user-images.githubusercontent.com/122308794/233323413-3bcd34f2-bbd8-4ee3-adf3-c45455def15e.PNG)
+
+Pet profile
+![IMG_7200](https://user-images.githubusercontent.com/122308794/233323488-e9046d7e-ffe3-49bd-b274-dbccf35cea4a.PNG)
+
+Active Medication Schedule
+![IMG_7201](https://user-images.githubusercontent.com/122308794/233323621-625edfeb-4f17-4c50-9b36-5d5cc78fdd5b.PNG)
+
+Vet Chat
+![IMG_7202](https://user-images.githubusercontent.com/122308794/233323812-cbdff442-de27-45c6-9db6-7984499c243a.PNG)
 
 
 https://user-images.githubusercontent.com/122308794/233322976-01f5570a-a425-4553-8bf7-69f6d0533ef6.mov
 
-
-![IMG_7199](https://user-images.githubusercontent.com/122308794/233322897-7fad22b6-25a7-42a6-9a7c-470073de2912.PNG)
-![IMG_7200](https://user-images.githubusercontent.com/122308794/233321788-8b71092b-caac-484c-a2ec-d045b1dfa645.PNG)
-![IMG_7201](https://user-images.githubusercontent.com/122308794/233321816-c3f35ecf-de66-4659-9d3c-ec848d1dc86c.PNG)
-![IMG_7202](https://user-images.githubusercontent.com/122308794/233321840-8f35070f-43fd-44a0-93ab-1e8d1659f284.PNG)
 
 ## Credits
 The ChillPill team: Tahli (tahlikipps), Angie (anyeelog), Fatima (FatimaPashazade) and Fa (fa-it-girl)
