@@ -22,4 +22,4 @@ What was used:
 - Flatpickr
 - Mapbox
 
-[![Demo] (https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)]
+<iframe src='//gifs.com/embed/chillpill-owner-pet-profiles-nR9pK7' frameborder='0' scrolling='no' width='638px' height='1304px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
