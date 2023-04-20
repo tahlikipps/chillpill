@@ -22,6 +22,6 @@ What was used:
 - Flatpickr
 - Mapbox
 
-##Demo
+## Demo
 
-[![Demo](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)
+[![Demo User and Pet Profile](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)
