@@ -24,19 +24,25 @@ What was used:
 
 ## Screenshots & Demo
 Landing page
+
 ![IMG_7199](https://user-images.githubusercontent.com/122308794/233323413-3bcd34f2-bbd8-4ee3-adf3-c45455def15e.PNG)
 
 Pet profile
+
 ![IMG_7200](https://user-images.githubusercontent.com/122308794/233323488-e9046d7e-ffe3-49bd-b274-dbccf35cea4a.PNG)
 
 Active Medication Schedule
+
 ![IMG_7201](https://user-images.githubusercontent.com/122308794/233323621-625edfeb-4f17-4c50-9b36-5d5cc78fdd5b.PNG)
 
 Vet Chat
+
 ![IMG_7202](https://user-images.githubusercontent.com/122308794/233323812-cbdff442-de27-45c6-9db6-7984499c243a.PNG)
 
 
-https://user-images.githubusercontent.com/122308794/233322976-01f5570a-a425-4553-8bf7-69f6d0533ef6.mov
+
+
+https://user-images.githubusercontent.com/122308794/233324465-be3f9c9e-b22b-4c43-9f67-08ad4205721c.mov
 
 
 ## Credits
