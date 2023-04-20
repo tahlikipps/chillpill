@@ -23,24 +23,9 @@ What was used:
 - Mapbox
 
 ## Screenshots & Demo
-Landing page
+Landing page, Pet profile, Active Medication Schedule & Vet Chat screens
 
-![IMG_7199](https://user-images.githubusercontent.com/122308794/233323413-3bcd34f2-bbd8-4ee3-adf3-c45455def15e.PNG)
-
-Pet profile
-
-![IMG_7200](https://user-images.githubusercontent.com/122308794/233323488-e9046d7e-ffe3-49bd-b274-dbccf35cea4a.PNG)
-
-Active Medication Schedule
-
-![IMG_7201](https://user-images.githubusercontent.com/122308794/233323621-625edfeb-4f17-4c50-9b36-5d5cc78fdd5b.PNG)
-
-Vet Chat
-
-![IMG_7202](https://user-images.githubusercontent.com/122308794/233323812-cbdff442-de27-45c6-9db6-7984499c243a.PNG)
-
-
-
+![IMG_7199](https://user-images.githubusercontent.com/122308794/233326024-9736aa69-c285-4d5e-a968-72c54820a539.PNG)![IMG_7200](https://user-images.githubusercontent.com/122308794/233326045-7ceb6417-8acc-4f60-9f94-20d4d396af9a.PNG)![IMG_7201](https://user-images.githubusercontent.com/122308794/233326069-ee1b2126-88b1-43e2-8edb-a1fd9ff53aae.PNG)![IMG_7202](https://user-images.githubusercontent.com/122308794/233326337-4fc7e924-b087-4221-897a-341d67de8cd6.PNG)
 
 https://user-images.githubusercontent.com/122308794/233324465-be3f9c9e-b22b-4c43-9f67-08ad4205721c.mov
 
