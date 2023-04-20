@@ -1,6 +1,7 @@
 # ChillPill
 
-ChillPill is a mobile first designed web application, aimed at helping pet owners manage their pet's medication plan. Currently available at www.chillpill.site 
+ChillPill is a mobile first designed web application, aimed at helping pet owners manage their pet's medication plan. Currently available at www.chillpill.site on mobile only.
+
 Key features for pet owner's include:
 - Ability to add, edit, delete medications and linked schedules for pets.
 - Receive email notifications to remind of upcoming medications due.
@@ -20,3 +21,5 @@ What was used:
 - Bootstrap
 - Flatpickr
 - Mapbox
+
+[![Demo] (https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)]
