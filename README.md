@@ -24,11 +24,12 @@ What was used:
 
 ## Screenshots & Demo
 
-[![Demo User and Pet Profile](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9pK7)](https://gifs.com/gif/chillpill-owner-pet-profiles-nR9!
-[IMG_7199](https://user-images.githubusercontent.com/122308794/233321744-d61b2ff3-7972-417b-8500-9b89f1d37d84.PNG)
-pK7)
-![IMG_7200](https://user-images.githubusercontent.com/122308794/233321788-8b71092b-caac-484c-a2ec-d045b1dfa645.PNG)
 
+https://user-images.githubusercontent.com/122308794/233322976-01f5570a-a425-4553-8bf7-69f6d0533ef6.mov
+
+
+![IMG_7199](https://user-images.githubusercontent.com/122308794/233322897-7fad22b6-25a7-42a6-9a7c-470073de2912.PNG)
+![IMG_7200](https://user-images.githubusercontent.com/122308794/233321788-8b71092b-caac-484c-a2ec-d045b1dfa645.PNG)
 ![IMG_7201](https://user-images.githubusercontent.com/122308794/233321816-c3f35ecf-de66-4659-9d3c-ec848d1dc86c.PNG)
 ![IMG_7202](https://user-images.githubusercontent.com/122308794/233321840-8f35070f-43fd-44a0-93ab-1e8d1659f284.PNG)
 
