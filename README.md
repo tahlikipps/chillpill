@@ -1,6 +1,6 @@
 # ChillPill
 
-ChillPill is a mobile first designed web application, aimed at helping pet owners manage their pet's medication plan. 
+ChillPill is a mobile first designed web application, aimed at helping pet owners manage their pet's medication plan. Currently available at www.chillpill.site 
 Key features for pet owner's include:
 - Ability to add, edit, delete medications and linked schedules for pets.
 - Receive email notifications to remind of upcoming medications due.
