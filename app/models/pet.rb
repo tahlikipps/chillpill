@@ -17,4 +17,8 @@ class Pet < ApplicationRecord
     vet = pet_carers.find{ |carer| carer.user.is_vet? }
     vet.user if vet
   end
+
+  def pet_age
+    Date.today.year - birth_date.year
+  end
 end

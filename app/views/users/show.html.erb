@@ -60,10 +60,10 @@
           <% @user_pets.each do |pet| %>
             <%= link_to pet_path(pet) do %>
               <div class="profile-petscard">
-              <%#= image_tag "pet-avatar", height: '50px', width:'50px', style: "object-fit: cover; border-radius: 50%;" %>
-              <%= cl_image_tag pet.photo.key, height: '50px', width:'50px', style: "object-fit: cover; border-radius: 50%;"%>
-              <h3><%= pet.name %></h3>
-              <span class="text-small"><% pet_age = Date.today.year - pet.birth_date.year %><%=  pluralize pet_age, "year" %> old</span>
+                <%#= image_tag "pet-avatar", height: '50px', width:'50px', style: "object-fit: cover; border-radius: 50%;" %>
+                <%= cl_image_tag pet.photo.key, height: '50px', width:'50px', style: "object-fit: cover; border-radius: 50%;"%>
+                <h3><%= pet.name %></h3>
+                <span class="text-small"><% pet.pet_age %><%=  pluralize pet.pet_age, "year" %> old</span>
               </div>
             <% end %>
           <% end %>

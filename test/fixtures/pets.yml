@@ -1,0 +1,5 @@
+love:
+  name: "Love"
+  species: "Dog"
+  address: "Carrer de Bruc 120, Barcelona"
+  birth_date: <%= Date.new(2021, 1, 1) %>

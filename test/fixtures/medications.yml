@@ -1,0 +1,10 @@
+painmeds:
+  name: "Pain Meds"
+  medication_type: "Capsule"
+  dosage: "Orally given with food"
+  time_period: "daily"
+  frequency: 1
+  start_date: <%= Date.new(2022, 1, 3) %>
+  end_date: <%= Date.new(2022, 1, 5) %>
+  pet: love
+  status: "active"
