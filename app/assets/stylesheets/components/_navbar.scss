@@ -16,7 +16,12 @@
   padding-top: 65px;
   height: 100vh;
   overflow: scroll;
+}
 
+@media (min-width: 992px) {
+  .navbar-expand-sm .navbar-collapse {
+
+  }
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -124,6 +129,11 @@
   height: 70px;
   width: 70px;
   border-radius: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .curr_meds_icon {
