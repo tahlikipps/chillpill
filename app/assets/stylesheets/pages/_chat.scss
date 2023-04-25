@@ -57,16 +57,15 @@
 .chats-card {
   display: flex;
   margin-bottom: 20px;
-  width: 100%;
 
   .chats-avt {
     height: 70px;
     width: 70px;
-    object-fit: cover;
 
     img {
-      height: 100%;
-      width: 100%;
+      height: 70px;
+      width: 70px;
+      object-fit: cover;
       border-radius: 20px;
     }
   }
