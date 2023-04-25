@@ -1,0 +1,5 @@
+pet_carer:
+  status: 1
+  pet: love
+  user: Laia
+  is_owner: true

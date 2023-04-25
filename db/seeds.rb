@@ -279,7 +279,7 @@ user9 = User.new(
   password: "123456",
   is_vet: false
 )
-file = URI.open("https://images.unsplash.com/photo-1609138271629-571665f418a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+file = URI.open("https://images.unsplash.com/photo-1597214840472-aa1eaf0e1fac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80")
 user9.photo.attach(io: file, filename: "new.jpg", content_type: "image/jpeg")
 
 user9.save!

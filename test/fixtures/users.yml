@@ -1,0 +1,8 @@
+Laia:
+  first_name: "Laia"
+  last_name: "Martínez"
+  bio: "Hello I am Laia and I really love my pets, they're the most beautiful things in the world."
+  phone_number: "+344566467"
+  address: "Carrer de Bruc 120, Barcelona"
+  email: "Laia@gmail.com"
+  is_vet: false

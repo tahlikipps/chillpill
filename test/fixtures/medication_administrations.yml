@@ -1,0 +1,20 @@
+meds1:
+  date: <%= Date.new(2023, 4, 22) %>
+  medication: painmeds
+  is_given: true
+  user_id: Laia
+meds2:
+  date: <%= Date.new(2023, 4, 23) %>
+  medication: painmeds
+  is_given: false
+  user_id: nil
+meds3:
+  date: <%= Date.new(2023, 4, 24) %>
+  medication: painmeds
+  is_given: false
+  user_id: nil
+meds4:
+  date: <%= Date.new(2023, 4, 25) %>
+  medication: painmeds
+  is_given: false
+  user_id: nil
